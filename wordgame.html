@@ -6,7 +6,7 @@
 			width: 246px;
 		}
 		.grid {
-			display: flex;		
+			display: flex;
 			flex-direction: column;
 		}
 		.textbox {
@@ -27,7 +27,7 @@
 			flex-direction: row;
 		}
 		.letters {
-			
+
 		}
 		.letter {
 			width: 20px;
@@ -74,7 +74,7 @@
 			width: 100%;
 			text-align: center;
 			margin-top: 20px;
-			height: 25px;			
+			height: 25px;
 		}
 	</style>
 	<script type="text/javascript">
@@ -83,7 +83,7 @@
 		var wordSet = true;
 		var row = 1;
 		var col = 1;
-		
+
 		async function set() {
 			if (wordSet) {
 				wordSet = false;
@@ -91,17 +91,17 @@
 				document.getElementById("NEW").style.visibility = "visible";
 				document.getElementById("SET").value = "SET WORD";
 			} else {
-				var newWord = document.getElementById("NEW").value;				
+				var newWord = document.getElementById("NEW").value;
 				if (newWord && newWord.length === 5) {
 					if (await isWord(newWord)) {
-						wordSet = true; 
+						wordSet = true;
 						selectedWord = document.getElementById("NEW").value.toUpperCase();
 						document.getElementById("NEW").style.visibility = "hidden";
 						document.getElementById("SET").value = "CHANGE WORD";
 						complete = false;
 						row = 1;
 						col = 1;
-						
+
 						for (var i=1; i<=6; i++) {
 							for (var j=1; j<=5; j++) {
 								document.getElementById("r" + i + "c" + j).firstChild.innerHTML = "";
@@ -109,8 +109,8 @@
 								document.getElementById("r" + i + "c" + j).classList.remove("gray");
 								document.getElementById("r" + i + "c" + j).classList.remove("yellow");
 							}
-						}				
-					
+						}
+
 						Array.from(document.getElementsByClassName("letter")).forEach(letter => {
 							letter.classList.remove("green");
 							letter.classList.remove("gray");
@@ -122,9 +122,9 @@
 				} else {
 					setMessage("Not a 5 letter word");
 				}
-			}			
+			}
 		}
-		
+
 		async function enter() {
 			if (col > 5 && !complete) {
 				var newWord = "";
@@ -133,50 +133,55 @@
 				newWord = newWord + document.getElementById("r" + row + "c3").firstChild.innerHTML;
 				newWord = newWord + document.getElementById("r" + row + "c4").firstChild.innerHTML;
 				newWord = newWord + document.getElementById("r" + row + "c5").firstChild.innerHTML;
-				
+
 				if (await isWord(newWord)) {
 					for (var i=1; i<=5; i++) {
 						if (newWord[i-1] == selectedWord[i-1]) {
 							document.getElementById(newWord[i-1]).classList.add("green");
+							document.getElementById(newWord[i-1]).classList.remove("yellow");
 							document.getElementById("r" + row + "c" + i).classList.add("green")
 						} else if (selectedWord.includes(newWord[i-1]) && isValidDuplicate(newWord, i-1)) {
-							document.getElementById(newWord[i-1]).classList.add("yellow");
-							document.getElementById("r" + row + "c" + i).classList.add("yellow")							
+							document.getElementById("r" + row + "c" + i).classList.add("yellow")
+							if (!document.getElementById(newWord[i-1]).classList.contains("green")) {
+								document.getElementById(newWord[i-1]).classList.add("yellow");
+							}
 						} else {
-							document.getElementById(newWord[i-1]).classList.add("gray");
-							document.getElementById("r" + row + "c" + i).classList.add("gray")							
+							document.getElementById("r" + row + "c" + i).classList.add("gray")
+							if (!document.getElementById(newWord[i-1]).classList.contains("green") && !document.getElementById(newWord[i-1]).classList.contains("yellow")) {
+								document.getElementById(newWord[i-1]).classList.add("gray");
+							}
 						}
 					}
-												
+
 					if (newWord == selectedWord) {
 						setMessage("CONGRATULATIONS");
 						complete = true;
 					} else {
 						row++;
 						col = 1;
-					}				
-					
+					}
+
 					if (row > 6) {
 						setMessage("The word was " + selectedWord);
 					}
 				}
-			} 					
+			}
 		}
-		
+
 		function back () {
-			if (col > 1 && !complete) {				
+			if (col > 1 && !complete) {
 				col--;
 				document.getElementById("r" + row + "c" + col).firstChild.innerHTML = "";
 			}
 		}
-		
+
 		function letterClicked(letter) {
 			if (col <= 5) {
 				document.getElementById("r" + row + "c" + col).firstChild.innerHTML = letter;
 				col++;
 			}
 		}
-		
+
 		function isWord(word) {
 			return Promise.resolve(true);
 			const url = "https://api.wordnik.com/v4/word.json/" + word + "/definitions?limit=2&includeRelated=false&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
@@ -195,9 +200,9 @@
 					resolve(true);
 				};
 				xhr.send();
-			});			
+			});
 		}
-		
+
 		function isValidDuplicate (newWord, newIndex) {
 			var letter = newWord[newIndex];
 			var countInSelectedWord = (selectedWord.match(new RegExp(letter, "g"))).length;
@@ -205,7 +210,7 @@
 			var incorrectEarlierInWord = selectedWord.split("").filter((element, index) => element != newWord[index] && newWord[index] == letter && index < newIndex).length;
 			return countInSelectedWord - correctInNewWord - incorrectEarlierInWord > 0;
 		}
-		
+
 		function setMessage (message) {
 		document.getElementById("message").innerHTML = message;
 			setTimeout(function() {
@@ -222,45 +227,45 @@
 				<div id="r1c2" class="textbox"><span class="textspan"></span></div>
 				<div id="r1c3" class="textbox"><span class="textspan"></span></div>
 				<div id="r1c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r1c5" class="textbox"><span class="textspan"></span></div>		
+				<div id="r1c5" class="textbox"><span class="textspan"></span></div>
 			</div>
 			<div id="r2" class="row">
 				<div id="r2c1" class="textbox"><span class="textspan"></span></div>
 				<div id="r2c2" class="textbox"><span class="textspan"></span></div>
 				<div id="r2c3" class="textbox"><span class="textspan"></span></div>
 				<div id="r2c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r2c5" class="textbox"><span class="textspan"></span></div>	
+				<div id="r2c5" class="textbox"><span class="textspan"></span></div>
 			</div>
 			<div id="r3" class="row">
 				<div id="r3c1" class="textbox"><span class="textspan"></span></div>
 				<div id="r3c2" class="textbox"><span class="textspan"></span></div>
 				<div id="r3c3" class="textbox"><span class="textspan"></span></div>
 				<div id="r3c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r3c5" class="textbox"><span class="textspan"></span></div>	
+				<div id="r3c5" class="textbox"><span class="textspan"></span></div>
 			</div>
 			<div id="r4" class="row">
 				<div id="r4c1" class="textbox"><span class="textspan"></span></div>
 				<div id="r4c2" class="textbox"><span class="textspan"></span></div>
 				<div id="r4c3" class="textbox"><span class="textspan"></span></div>
 				<div id="r4c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r4c5" class="textbox"><span class="textspan"></span></div>	
+				<div id="r4c5" class="textbox"><span class="textspan"></span></div>
 			</div>
 			<div id="r5" class="row">
 				<div id="r5c1" class="textbox"><span class="textspan"></span></div>
 				<div id="r5c2" class="textbox"><span class="textspan"></span></div>
 				<div id="r5c3" class="textbox"><span class="textspan"></span></div>
 				<div id="r5c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r5c5" class="textbox"><span class="textspan"></span></div>	
+				<div id="r5c5" class="textbox"><span class="textspan"></span></div>
 			</div id="r6">
 				<div id="r6" class="row">
 				<div id="r6c1" class="textbox"><span class="textspan"></span></div>
 				<div id="r6c2" class="textbox"><span class="textspan"></span></div>
 				<div id="r6c3" class="textbox"><span class="textspan"></span></div>
 				<div id="r6c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r6c5" class="textbox"><span class="textspan"></span></div>	
+				<div id="r6c5" class="textbox"><span class="textspan"></span></div>
 			</div>
 		</div>
-		
+
 		<div>
 			<div id="letters" style="margin:5px 2px">
 				<input id="Q" type="button" class="letter" value="Q" onclick="letterClicked('Q')"></input>
@@ -271,8 +276,8 @@
 				<input id="Y" type="button" class="letter" value="Y" onclick="letterClicked('Y')"></input>
 				<input id="U" type="button" class="letter" value="U" onclick="letterClicked('U')"></input>
 				<input id="I" type="button" class="letter" value="I" onclick="letterClicked('I')"></input>
-				<input id="O" type="button" class="letter" value="O" onclick="letterClicked('O')"></input>			
-				<input id="P" type="button" class="letter" value="P" onclick="letterClicked('P')"></input>			
+				<input id="O" type="button" class="letter" value="O" onclick="letterClicked('O')"></input>
+				<input id="P" type="button" class="letter" value="P" onclick="letterClicked('P')"></input>
 			</div>
 				<div style="margin:5px 14px">
 				<input id="A" type="button" class="letter" value="A" onclick="letterClicked('A')"></input>
@@ -283,7 +288,7 @@
 				<input id="H" type="button" class="letter" value="H" onclick="letterClicked('H')"></input>
 				<input id="J" type="button" class="letter" value="J" onclick="letterClicked('J')"></input>
 				<input id="K" type="button" class="letter" value="K" onclick="letterClicked('K')"></input>
-				<input id="L" type="button" class="letter" value="L" onclick="letterClicked('L')"></input>			
+				<input id="L" type="button" class="letter" value="L" onclick="letterClicked('L')"></input>
 			</div>
 				<div style="margin:5px 2px;">
 				<input id="ENTER" type="button" class="letter-button" value="ENTR" onclick="enter()"></input>
@@ -293,20 +298,20 @@
 				<input id="V" type="button" class="letter" value="V" onclick="letterClicked('V')"></input>
 				<input id="B" type="button" class="letter" value="B" onclick="letterClicked('B')"></input>
 				<input id="N" type="button" class="letter" value="N" onclick="letterClicked('N')"></input>
-				<input id="M" type="button" class="letter" value="M" onclick="letterClicked('M')"></input>		
-				<input id="BACK" type="button" class="letter-button" value="BACK" onclick="back()"></input>	
+				<input id="M" type="button" class="letter" value="M" onclick="letterClicked('M')"></input>
+				<input id="BACK" type="button" class="letter-button" value="BACK" onclick="back()"></input>
 			</div>
 		</div>
-		
+
 		<div class="message">
 			<span id="message"></span>
 		</div>
-		
+
 		<div>
 			<input id="SET" type="button" class="set-word" value="CHANGE WORD" onclick="set()" />
 		</div>
-		<div>	
-			<input id="NEW" type="text" class="new-word"/>	
+		<div>
+			<input id="NEW" type="text" class="new-word"/>
 		</div>
 	</div>
 </body>
