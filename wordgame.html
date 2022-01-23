@@ -50,7 +50,7 @@
 			color: #555555;
 		}
 		.set-word {
-			margin: 60px 2px 0 2px;
+			margin: 2px;
 			width: 236px;
 			border: none;
 			height: 25px;
@@ -62,6 +62,13 @@
 			visibility: hidden;
 			text-align: center;
 			color: #555555;
+		}
+		.next-word {
+			margin: 35px 2px 4px 2px;
+			width: 236px;
+			height: 25px;
+			border: none;
+			
 		}
 		.green {
 			background: lightgreen;
@@ -86,23 +93,35 @@
 	</style>
 	<script type="text/javascript">
 		var complete = false;
-		var selectedWord = "DODGE";
+		var wordList = ["MAPLE","RESET","PENCE","SHARK","FANCY","GREEN","FUNNY","JOUST","QUICK"];
+		var selectedWord = wordList[0];
 		var wordSet = true;
+		var wordIndex = 0;
 		var row = 1;
 		var col = 1;
 
-		async function set() {
+		function next() {
+			if (wordIndex + 1 < wordList.length) {
+				wordSet = false;
+				wordIndex++;
+				set(wordList[wordIndex]);
+			} else {
+				setMessage("Last Word of the Day");
+			}
+		}
+		
+		async function set(nextWord) {
 			if (wordSet) {
 				wordSet = false;
 				document.getElementById("NEW").value = "";
 				document.getElementById("NEW").style.visibility = "visible";
 				document.getElementById("SET").value = "SET WORD";
 			} else {
-				var newWord = document.getElementById("NEW").value;
+				var newWord = nextWord || document.getElementById("NEW").value;
 				if (newWord && newWord.length === 5) {
 					if (await isWord(newWord)) {
 						wordSet = true;
-						selectedWord = document.getElementById("NEW").value.toUpperCase();
+						selectedWord = newWord;
 						document.getElementById("NEW").style.visibility = "hidden";
 						document.getElementById("SET").value = "CHANGE WORD";
 						complete = false;
@@ -314,6 +333,10 @@
 			<span id="message"></span>
 		</div>
 
+		<div>
+			<input id="NEXT" type="button" class="next-word" value="NEXT WORD" onclick="next()" />
+		</div>
+		
 		<div>
 			<input id="SET" type="button" class="set-word" value="CHANGE WORD" onclick="set()" />
 		</div>
