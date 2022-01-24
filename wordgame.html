@@ -121,7 +121,7 @@
 				if (newWord && newWord.length === 5) {
 					if (await isWord(newWord)) {
 						wordSet = true;
-						selectedWord = newWord;
+						selectedWord = newWord.toUpperCase();
 						document.getElementById("NEW").style.visibility = "hidden";
 						document.getElementById("SET").value = "CHANGE WORD";
 						complete = false;
