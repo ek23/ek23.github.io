@@ -3,24 +3,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		.frame {
-			width: 246px;
+			width: 336px;
 		}
 		.grid {
 			display: flex;
 			flex-direction: column;
+			margin-bottom: 10px;
+		}
+		.letter-grid {
+			width: 100%;
+			text-align: center;
 		}
 		.textbox {
-			width: 43px;
-			height: 43px;
+			width: 64px;
+			height: 64px;
 			border: 1px solid lightgray;
 			margin: 2px;
-			font-size: 25px;
+			font-size: 40px;
 			font-family: sans-serif;
 			text-align: center;
 			vertical-align: middle;
 		}
 		.textspan {
-			line-height: 43px;
+			line-height: 64px;
 			color: #555555;
 		}
 		.row {
@@ -31,8 +36,8 @@
 
 		}
 		.letter {
-			width: 20px;
-			height: 40px;
+			width: 29px;
+			height: 58px;
 			vertical-align: middle;
 			text-align: center;
 			padding: 0;
@@ -40,8 +45,8 @@
 			color: #555555;
 		}
 		.letter-button {
-			width: 32px;
-			height: 40px;
+			width: 42px;
+			height: 58px;
 			vertical-align: middle;
 			text-align: center;
 			padding: 0;
@@ -51,21 +56,21 @@
 		}
 		.set-word {
 			margin: 2px;
-			width: 236px;
+			width: 100%;
 			border: none;
 			height: 25px;
 			color: #555555;
 		}
 		.new-word {
 			margin:2px;
-			width: 236px;
+			width: 100%;
 			visibility: hidden;
 			text-align: center;
 			color: #555555;
 		}
 		.next-word {
 			margin: 35px 2px 4px 2px;
-			width: 236px;
+			width: 100%;
 			height: 25px;
 			border: none;
 			color: #555555;			
@@ -292,7 +297,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div class="letter-grid">
 			<div id="letters" style="margin:5px 2px">
 				<input id="Q" type="button" class="letter" value="Q" onclick="letterClicked('Q')"></input>
 				<input id="W" type="button" class="letter" value="W" onclick="letterClicked('W')"></input>
@@ -305,7 +310,7 @@
 				<input id="O" type="button" class="letter" value="O" onclick="letterClicked('O')"></input>
 				<input id="P" type="button" class="letter" value="P" onclick="letterClicked('P')"></input>
 			</div>
-				<div style="margin:5px 14px">
+			<div style="margin:5px 14px">
 				<input id="A" type="button" class="letter" value="A" onclick="letterClicked('A')"></input>
 				<input id="S" type="button" class="letter" value="S" onclick="letterClicked('S')"></input>
 				<input id="D" type="button" class="letter" value="D" onclick="letterClicked('D')"></input>
@@ -316,7 +321,7 @@
 				<input id="K" type="button" class="letter" value="K" onclick="letterClicked('K')"></input>
 				<input id="L" type="button" class="letter" value="L" onclick="letterClicked('L')"></input>
 			</div>
-				<div style="margin:5px 2px;">
+			<div style="margin:5px 2px;">
 				<input id="ENTER" type="button" class="letter-button" value="ENTR" onclick="enter()"></input>
 				<input id="Z" type="button" class="letter" value="Z" onclick="letterClicked('Z')"></input>
 				<input id="X" type="button" class="letter" value="X" onclick="letterClicked('X')"></input>
