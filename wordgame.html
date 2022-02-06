@@ -75,7 +75,7 @@
 			width: 100%;
 			height: 35px;
 			border: none;
-			color: #555555;			
+			color: #555555;
 		}
 		.green {
 			background: lightgreen;
@@ -122,7 +122,7 @@
 				setMessage("Last word of the day!");
 			}
 		}
-		
+
 		async function set(nextWord) {
 			if (wordSet) {
 				wordSet = false;
@@ -194,16 +194,16 @@
 
 					if (newWord == selectedWord) {
 						switch (row) {
-							case 1: 
+							case 1:
 								setMessage("Amazing!");
 								break;
-							case 2: 
+							case 2:
 								setMessage("Fantastic!");
 								break;
-							case 3: 
+							case 3:
 								setMessage("Outstanding!");
 								break;
-							default: 
+							default:
 								setMessage("Congratulations!");
 								break;
 						}
@@ -216,7 +216,9 @@
 					if (row > 6) {
 						setMessage("The word was " + selectedWord);
 					}
-				}
+				} else {
+          setMessage("Not a valid word!")
+        }
 			}
 		}
 
@@ -235,8 +237,7 @@
 		}
 
 		function isWord(word) {
-			return Promise.resolve(true);
-			const url = "https://api.wordnik.com/v4/word.json/" + word + "/definitions?limit=2&includeRelated=false&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
+			const url = "https://api.wordnik.com/v4/word.json/" + word.toLowerCase() + "/definitions?limit=2&includeRelated=false&useCanonical=false&includeTags=false&api_key=gb9exjbmy6nq74wvxz8mhfyr5lfyar2bfako82m2yc421kgg1";
 
 			return new Promise((resolve) => {
 				let xhr = new XMLHttpRequest();
@@ -357,13 +358,13 @@
 				<div class="message">
 				<span id="message"></span>
 				</div>
-			</div>			
+			</div>
 		</div>
 
 		<div>
 			<input id="NEXT" type="button" class="next-word" value="NEXT WORD" onclick="next()" />
 		</div>
-		
+
 		<div>
 			<input id="SET" type="button" class="set-word" value="CHANGE WORD" onclick="set()" />
 		</div>
