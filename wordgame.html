@@ -1,375 +1,376 @@
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		.frame {
-			width: 336px;
-			margin-bottom: 25px;
-		}
-		.grid {
-			display: flex;
-			flex-direction: column;
-			margin-bottom: 5px;
-		}
-		.letter-grid {
-			width: 100%;
-			text-align: center;
-		}
-		.textbox {
-			width: 64px;
-			height: 64px;
-			border: 1px solid lightgray;
-			margin: 2px;
-			font-size: 40px;
-			font-family: sans-serif;
-			text-align: center;
-			vertical-align: middle;
-		}
-		.textspan {
-			line-height: 64px;
-			color: #555555;
-		}
-		.row {
-			display: flex;
-			flex-direction: row;
-		}
-		.letters {
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .frame {
+      width: 336px;
+      margin-bottom: 25px;
+    }
+    .grid {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 5px;
+    }
+    .letter-grid {
+      width: 100%;
+      text-align: center;
+    }
+    .textbox {
+      width: 64px;
+      height: 64px;
+      border: 1px solid lightgray;
+      margin: 2px;
+      font-size: 40px;
+      font-family: sans-serif;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .textspan {
+      line-height: 64px;
+      color: #555555;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+    .letters {
 
-		}
-		.letter {
-			width: 29px;
-			height: 55px;
-			vertical-align: middle;
-			text-align: center;
-			padding: 0;
-			border: none;
-			color: #555555;
-		}
-		.letter-button {
-			width: 42px;
-			height: 55px;
-			vertical-align: middle;
-			text-align: center;
-			padding: 0;
-			font-size: 8px;
-			border: none;
-			color: #555555;
-		}
-		.set-word {
-			margin: 2px;
-			width: 100%;
-			border: none;
-			height: 35px;
-			color: #555555;
-		}
-		.new-word {
-			margin:2px;
-			width: 100%;
-			visibility: hidden;
-			text-align: center;
-			line-height: 30px;
-			color: #555555;
-		}
-		.next-word {
-			margin: 55px 2px 4px 2px;
-			width: 100%;
-			height: 35px;
-			border: none;
-			color: #555555;			
-		}
-		.green {
-			background: lightgreen;
-			color: white;
-		}
-		.yellow {
-			background: yellow;
-			color: white;
-		}
-		.gray {
-			background: lightgray;
-			color: white;
-		}
-		.message {
-			position: absolute;
-			top: -11px;
-			width: 100%;
-		}
-		#message {
-			font-weight: bold;
-			font-family: sans-serif;
-			background: #555555;
-			color: white;
-			border-radius:5px;
-			padding: 3px 5px;
-			visibility: hidden;
-		}
-	</style>
-	<script type="text/javascript">
-		var complete = false;
-		var wordList = ["MAPLE","RESET","PENCE","SHARK","FANCY","GREEN","FUNNY","JOUST","QUICK"];
-		var selectedWord = wordList[0];
-		var wordSet = true;
-		var wordIndex = 0;
-		var row = 1;
-		var col = 1;
+    }
+    .letter {
+      width: 29px;
+      height: 55px;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0;
+      border: none;
+      color: #555555;
+    }
+    .letter-button {
+      width: 42px;
+      height: 55px;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0;
+      font-size: 8px;
+      border: none;
+      color: #555555;
+    }
+    .set-word {
+      margin: 2px;
+      width: 100%;
+      border: none;
+      height: 35px;
+      color: #555555;
+    }
+    .new-word {
+      margin:2px;
+      width: 100%;
+      visibility: hidden;
+      text-align: center;
+      line-height: 30px;
+      color: #555555;
+    }
+    .next-word {
+      margin: 55px 2px 4px 2px;
+      width: 100%;
+      height: 35px;
+      border: none;
+      color: #555555;
+    }
+    .green {
+      background: lightgreen;
+      color: white;
+    }
+    .yellow {
+      background: yellow;
+      color: white;
+    }
+    .gray {
+      background: lightgray;
+      color: white;
+    }
+    .message {
+      position: absolute;
+      top: -11px;
+      width: 100%;
+    }
+    #message {
+      font-weight: bold;
+      font-family: sans-serif;
+      background: #555555;
+      color: white;
+      border-radius:5px;
+      padding: 3px 5px;
+      visibility: hidden;
+    }
+  </style>
+  <script type="text/javascript">
+    var complete = false;
+    var wordList = ["MAPLE","RESET","PENCE","SHARK","FANCY","GREEN","FUNNY","JOUST","QUICK"];
+    var selectedWord = wordList[0];
+    var wordSet = true;
+    var wordIndex = 0;
+    var row = 1;
+    var col = 1;
 
-		function next() {
-			if (wordIndex + 1 < wordList.length) {
-				wordSet = false;
-				wordIndex++;
-				set(wordList[wordIndex]);
-			} else {
-				setMessage("Last word of the day!");
-			}
-		}
-		
-		async function set(nextWord) {
-			if (wordSet) {
-				wordSet = false;
-				document.getElementById("NEW").value = "";
-				document.getElementById("NEW").style.visibility = "visible";
-				document.getElementById("SET").value = "SET WORD";
-			} else {
-				var newWord = nextWord || document.getElementById("NEW").value;
-				if (newWord && newWord.length === 5) {
-					if (await isWord(newWord)) {
-						wordSet = true;
-						selectedWord = newWord.toUpperCase();
-						document.getElementById("NEW").style.visibility = "hidden";
-						document.getElementById("SET").value = "CHANGE WORD";
-						complete = false;
-						row = 1;
-						col = 1;
+    function next() {
+      if (wordIndex + 1 < wordList.length) {
+        wordSet = false;
+        wordIndex++;
+        set(wordList[wordIndex]);
+      } else {
+        setMessage("Last word of the day!");
+      }
+    }
 
-						for (var i=1; i<=6; i++) {
-							for (var j=1; j<=5; j++) {
-								document.getElementById("r" + i + "c" + j).firstChild.innerHTML = "";
-								document.getElementById("r" + i + "c" + j).classList.remove("green");
-								document.getElementById("r" + i + "c" + j).classList.remove("gray");
-								document.getElementById("r" + i + "c" + j).classList.remove("yellow");
-							}
-						}
+    async function set(nextWord) {
+      if (wordSet) {
+        wordSet = false;
+        document.getElementById("NEW").value = "";
+        document.getElementById("NEW").style.visibility = "visible";
+        document.getElementById("SET").value = "SET WORD";
+      } else {
+        var newWord = nextWord || document.getElementById("NEW").value;
+        if (newWord && newWord.length === 5) {
+          if (await isWord(newWord)) {
+            wordSet = true;
+            selectedWord = newWord.toUpperCase();
+            document.getElementById("NEW").style.visibility = "hidden";
+            document.getElementById("SET").value = "CHANGE WORD";
+            complete = false;
+            row = 1;
+            col = 1;
 
-						Array.from(document.getElementsByClassName("letter")).forEach(letter => {
-							letter.classList.remove("green");
-							letter.classList.remove("gray");
-							letter.classList.remove("yellow");
-						});
-					} else {
-						setMessage("Not a valid word!");
-					}
-				} else {
-					setMessage("Not a five letter word!");
-				}
-			}
-		}
+            for (var i=1; i<=6; i++) {
+              for (var j=1; j<=5; j++) {
+                document.getElementById("r" + i + "c" + j).firstChild.innerHTML = "";
+                document.getElementById("r" + i + "c" + j).classList.remove("green");
+                document.getElementById("r" + i + "c" + j).classList.remove("gray");
+                document.getElementById("r" + i + "c" + j).classList.remove("yellow");
+              }
+            }
 
-		async function enter() {
-			if (col > 5 && !complete) {
-				var newWord = "";
-				newWord = newWord + document.getElementById("r" + row + "c1").firstChild.innerHTML;
-				newWord = newWord + document.getElementById("r" + row + "c2").firstChild.innerHTML;
-				newWord = newWord + document.getElementById("r" + row + "c3").firstChild.innerHTML;
-				newWord = newWord + document.getElementById("r" + row + "c4").firstChild.innerHTML;
-				newWord = newWord + document.getElementById("r" + row + "c5").firstChild.innerHTML;
+            Array.from(document.getElementsByClassName("letter")).forEach(letter => {
+              letter.classList.remove("green");
+              letter.classList.remove("gray");
+              letter.classList.remove("yellow");
+            });
+          } else {
+            setMessage("Not a valid word!");
+          }
+        } else {
+          setMessage("Not a five letter word!");
+        }
+      }
+    }
 
-				if (await isWord(newWord)) {
-					for (var i=1; i<=5; i++) {
-						if (newWord[i-1] == selectedWord[i-1]) {
-							document.getElementById(newWord[i-1]).classList.add("green");
-							document.getElementById(newWord[i-1]).classList.remove("yellow");
-							document.getElementById("r" + row + "c" + i).classList.add("green")
-						} else if (selectedWord.includes(newWord[i-1]) && isValidDuplicate(newWord, i-1)) {
-							document.getElementById("r" + row + "c" + i).classList.add("yellow")
-							if (!document.getElementById(newWord[i-1]).classList.contains("green")) {
-								document.getElementById(newWord[i-1]).classList.add("yellow");
-							}
-						} else {
-							document.getElementById("r" + row + "c" + i).classList.add("gray")
-							if (!document.getElementById(newWord[i-1]).classList.contains("green") && !document.getElementById(newWord[i-1]).classList.contains("yellow")) {
-								document.getElementById(newWord[i-1]).classList.add("gray");
-							}
-						}
-					}
+    async function enter() {
+      if (col > 5 && !complete) {
+        var newWord = "";
+        newWord = newWord + document.getElementById("r" + row + "c1").firstChild.innerHTML;
+        newWord = newWord + document.getElementById("r" + row + "c2").firstChild.innerHTML;
+        newWord = newWord + document.getElementById("r" + row + "c3").firstChild.innerHTML;
+        newWord = newWord + document.getElementById("r" + row + "c4").firstChild.innerHTML;
+        newWord = newWord + document.getElementById("r" + row + "c5").firstChild.innerHTML;
 
-					if (newWord == selectedWord) {
-						switch (row) {
-							case 1: 
-								setMessage("Amazing!");
-								break;
-							case 2: 
-								setMessage("Fantastic!");
-								break;
-							case 3: 
-								setMessage("Outstanding!");
-								break;
-							default: 
-								setMessage("Congratulations!");
-								break;
-						}
-						complete = true;
-					} else {
-						row++;
-						col = 1;
-					}
+        if (await isWord(newWord)) {
+          for (var i=1; i<=5; i++) {
+            if (newWord[i-1] == selectedWord[i-1]) {
+              document.getElementById(newWord[i-1]).classList.add("green");
+              document.getElementById(newWord[i-1]).classList.remove("yellow");
+              document.getElementById("r" + row + "c" + i).classList.add("green")
+            } else if (selectedWord.includes(newWord[i-1]) && isValidDuplicate(newWord, i-1)) {
+              document.getElementById("r" + row + "c" + i).classList.add("yellow")
+              if (!document.getElementById(newWord[i-1]).classList.contains("green")) {
+                document.getElementById(newWord[i-1]).classList.add("yellow");
+              }
+            } else {
+              document.getElementById("r" + row + "c" + i).classList.add("gray")
+              if (!document.getElementById(newWord[i-1]).classList.contains("green") && !document.getElementById(newWord[i-1]).classList.contains("yellow")) {
+                document.getElementById(newWord[i-1]).classList.add("gray");
+              }
+            }
+          }
 
-					if (row > 6) {
-						setMessage("The word was " + selectedWord);
-					}
-				}
-			}
-		}
+          if (newWord == selectedWord) {
+            switch (row) {
+              case 1:
+                setMessage("Amazing!");
+                break;
+              case 2:
+                setMessage("Fantastic!");
+                break;
+              case 3:
+                setMessage("Outstanding!");
+                break;
+              default:
+                setMessage("Congratulations!");
+                break;
+            }
+            complete = true;
+          } else {
+            row++;
+            col = 1;
+          }
 
-		function back () {
-			if (col > 1 && !complete) {
-				col--;
-				document.getElementById("r" + row + "c" + col).firstChild.innerHTML = "";
-			}
-		}
+          if (row > 6) {
+            setMessage("The word was " + selectedWord);
+          }
+        } else {
+          setMessage("Not a valid word!")
+        }
+      }
+    }
 
-		function letterClicked(letter) {
-			if (col <= 5) {
-				document.getElementById("r" + row + "c" + col).firstChild.innerHTML = letter;
-				col++;
-			}
-		}
+    function back () {
+      if (col > 1 && !complete) {
+        col--;
+        document.getElementById("r" + row + "c" + col).firstChild.innerHTML = "";
+      }
+    }
 
-		function isWord(word) {
-			return Promise.resolve(true);
-			const url = "https://api.wordnik.com/v4/word.json/" + word + "/definitions?limit=2&includeRelated=false&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
+    function letterClicked(letter) {
+      if (col <= 5) {
+        document.getElementById("r" + row + "c" + col).firstChild.innerHTML = letter;
+        col++;
+      }
+    }
 
-			return new Promise((resolve) => {
-				let xhr = new XMLHttpRequest();
-				xhr.open("GET", url);
-				xhr.onload = function () {
-					if (this.status == 200) {
-						resolve(true);
-					} else {
-						resolve(false);
-					}
-				};
-				xhr.onerror = function () {
-					resolve(true);
-				};
-				xhr.send();
-			});
-		}
+    function isWord(word) {
+      const url = "https://api.wordnik.com/v4/word.json/" + word.toLowerCase() + "/definitions?limit=2&includeRelated=false&useCanonical=false&includeTags=false&api_key=gb9exjbmy6nq74wvxz8mhfyr5lfyar2bfako82m2yc421kgg1";
 
-		function isValidDuplicate (newWord, newIndex) {
-			var letter = newWord[newIndex];
-			var countInSelectedWord = (selectedWord.match(new RegExp(letter, "g"))).length;
-			var correctInNewWord = selectedWord.split("").filter((element, index) => element == newWord[index] && element == letter).length;
-			var incorrectEarlierInWord = selectedWord.split("").filter((element, index) => element != newWord[index] && newWord[index] == letter && index < newIndex).length;
-			return countInSelectedWord - correctInNewWord - incorrectEarlierInWord > 0;
-		}
+      return new Promise((resolve) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.onload = function () {
+          if (this.status == 200) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        };
+        xhr.onerror = function () {
+          resolve(true);
+        };
+        xhr.send();
+      });
+    }
 
-		function setMessage (message) {
-			document.getElementById("message").style.visibility = "visible";
-			document.getElementById("message").innerHTML = message;
-			setTimeout(function() {
-				document.getElementById("message").style.visibility = "hidden";
-				document.getElementById("message").innerHTML = "";
-			}, 3000);
-		}
-	</script>
+    function isValidDuplicate (newWord, newIndex) {
+      var letter = newWord[newIndex];
+      var countInSelectedWord = (selectedWord.match(new RegExp(letter, "g"))).length;
+      var correctInNewWord = selectedWord.split("").filter((element, index) => element == newWord[index] && element == letter).length;
+      var incorrectEarlierInWord = selectedWord.split("").filter((element, index) => element != newWord[index] && newWord[index] == letter && index < newIndex).length;
+      return countInSelectedWord - correctInNewWord - incorrectEarlierInWord > 0;
+    }
+
+    function setMessage (message) {
+      document.getElementById("message").style.visibility = "visible";
+      document.getElementById("message").innerHTML = message;
+      setTimeout(function() {
+        document.getElementById("message").style.visibility = "hidden";
+        document.getElementById("message").innerHTML = "";
+      }, 3000);
+    }
+  </script>
 </head>
 <body style="display:flex;justify-content:center;">
-	<div class="frame">
-		<div class="grid">
-			<div id="r1" class="row">
-				<div id="r1c1" class="textbox"><span class="textspan"></span></div>
-				<div id="r1c2" class="textbox"><span class="textspan"></span></div>
-				<div id="r1c3" class="textbox"><span class="textspan"></span></div>
-				<div id="r1c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r1c5" class="textbox"><span class="textspan"></span></div>
-			</div>
-			<div id="r2" class="row">
-				<div id="r2c1" class="textbox"><span class="textspan"></span></div>
-				<div id="r2c2" class="textbox"><span class="textspan"></span></div>
-				<div id="r2c3" class="textbox"><span class="textspan"></span></div>
-				<div id="r2c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r2c5" class="textbox"><span class="textspan"></span></div>
-			</div>
-			<div id="r3" class="row">
-				<div id="r3c1" class="textbox"><span class="textspan"></span></div>
-				<div id="r3c2" class="textbox"><span class="textspan"></span></div>
-				<div id="r3c3" class="textbox"><span class="textspan"></span></div>
-				<div id="r3c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r3c5" class="textbox"><span class="textspan"></span></div>
-			</div>
-			<div id="r4" class="row">
-				<div id="r4c1" class="textbox"><span class="textspan"></span></div>
-				<div id="r4c2" class="textbox"><span class="textspan"></span></div>
-				<div id="r4c3" class="textbox"><span class="textspan"></span></div>
-				<div id="r4c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r4c5" class="textbox"><span class="textspan"></span></div>
-			</div>
-			<div id="r5" class="row">
-				<div id="r5c1" class="textbox"><span class="textspan"></span></div>
-				<div id="r5c2" class="textbox"><span class="textspan"></span></div>
-				<div id="r5c3" class="textbox"><span class="textspan"></span></div>
-				<div id="r5c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r5c5" class="textbox"><span class="textspan"></span></div>
-			</div id="r6">
-				<div id="r6" class="row">
-				<div id="r6c1" class="textbox"><span class="textspan"></span></div>
-				<div id="r6c2" class="textbox"><span class="textspan"></span></div>
-				<div id="r6c3" class="textbox"><span class="textspan"></span></div>
-				<div id="r6c4" class="textbox"><span class="textspan"></span></div>
-				<div id="r6c5" class="textbox"><span class="textspan"></span></div>
-			</div>
-		</div>
+  <div class="frame">
+    <div class="grid">
+      <div id="r1" class="row">
+        <div id="r1c1" class="textbox"><span class="textspan"></span></div>
+        <div id="r1c2" class="textbox"><span class="textspan"></span></div>
+        <div id="r1c3" class="textbox"><span class="textspan"></span></div>
+        <div id="r1c4" class="textbox"><span class="textspan"></span></div>
+        <div id="r1c5" class="textbox"><span class="textspan"></span></div>
+      </div>
+      <div id="r2" class="row">
+        <div id="r2c1" class="textbox"><span class="textspan"></span></div>
+        <div id="r2c2" class="textbox"><span class="textspan"></span></div>
+        <div id="r2c3" class="textbox"><span class="textspan"></span></div>
+        <div id="r2c4" class="textbox"><span class="textspan"></span></div>
+        <div id="r2c5" class="textbox"><span class="textspan"></span></div>
+      </div>
+      <div id="r3" class="row">
+        <div id="r3c1" class="textbox"><span class="textspan"></span></div>
+        <div id="r3c2" class="textbox"><span class="textspan"></span></div>
+        <div id="r3c3" class="textbox"><span class="textspan"></span></div>
+        <div id="r3c4" class="textbox"><span class="textspan"></span></div>
+        <div id="r3c5" class="textbox"><span class="textspan"></span></div>
+      </div>
+      <div id="r4" class="row">
+        <div id="r4c1" class="textbox"><span class="textspan"></span></div>
+        <div id="r4c2" class="textbox"><span class="textspan"></span></div>
+        <div id="r4c3" class="textbox"><span class="textspan"></span></div>
+        <div id="r4c4" class="textbox"><span class="textspan"></span></div>
+        <div id="r4c5" class="textbox"><span class="textspan"></span></div>
+      </div>
+      <div id="r5" class="row">
+        <div id="r5c1" class="textbox"><span class="textspan"></span></div>
+        <div id="r5c2" class="textbox"><span class="textspan"></span></div>
+        <div id="r5c3" class="textbox"><span class="textspan"></span></div>
+        <div id="r5c4" class="textbox"><span class="textspan"></span></div>
+        <div id="r5c5" class="textbox"><span class="textspan"></span></div>
+      </div id="r6">
+        <div id="r6" class="row">
+        <div id="r6c1" class="textbox"><span class="textspan"></span></div>
+        <div id="r6c2" class="textbox"><span class="textspan"></span></div>
+        <div id="r6c3" class="textbox"><span class="textspan"></span></div>
+        <div id="r6c4" class="textbox"><span class="textspan"></span></div>
+        <div id="r6c5" class="textbox"><span class="textspan"></span></div>
+      </div>
+    </div>
 
-		<div class="letter-grid">
-			<div id="letters" style="margin:5px 2px">
-				<input id="Q" type="button" class="letter" value="Q" onclick="letterClicked('Q')"></input>
-				<input id="W" type="button" class="letter" value="W" onclick="letterClicked('W')"></input>
-				<input id="E" type="button" class="letter" value="E" onclick="letterClicked('E')"></input>
-				<input id="R" type="button" class="letter" value="R" onclick="letterClicked('R')"></input>
-				<input id="T" type="button" class="letter" value="T" onclick="letterClicked('T')"></input>
-				<input id="Y" type="button" class="letter" value="Y" onclick="letterClicked('Y')"></input>
-				<input id="U" type="button" class="letter" value="U" onclick="letterClicked('U')"></input>
-				<input id="I" type="button" class="letter" value="I" onclick="letterClicked('I')"></input>
-				<input id="O" type="button" class="letter" value="O" onclick="letterClicked('O')"></input>
-				<input id="P" type="button" class="letter" value="P" onclick="letterClicked('P')"></input>
-			</div>
-			<div style="margin:5px 14px">
-				<input id="A" type="button" class="letter" value="A" onclick="letterClicked('A')"></input>
-				<input id="S" type="button" class="letter" value="S" onclick="letterClicked('S')"></input>
-				<input id="D" type="button" class="letter" value="D" onclick="letterClicked('D')"></input>
-				<input id="F" type="button" class="letter" value="F" onclick="letterClicked('F')"></input>
-				<input id="G" type="button" class="letter" value="G" onclick="letterClicked('G')"></input>
-				<input id="H" type="button" class="letter" value="H" onclick="letterClicked('H')"></input>
-				<input id="J" type="button" class="letter" value="J" onclick="letterClicked('J')"></input>
-				<input id="K" type="button" class="letter" value="K" onclick="letterClicked('K')"></input>
-				<input id="L" type="button" class="letter" value="L" onclick="letterClicked('L')"></input>
-			</div>
-			<div style="margin:5px 2px;position:relative;">
-				<input id="ENTER" type="button" class="letter-button" value="ENTR" onclick="enter()"></input>
-				<input id="Z" type="button" class="letter" value="Z" onclick="letterClicked('Z')"></input>
-				<input id="X" type="button" class="letter" value="X" onclick="letterClicked('X')"></input>
-				<input id="C" type="button" class="letter" value="C" onclick="letterClicked('C')"></input>
-				<input id="V" type="button" class="letter" value="V" onclick="letterClicked('V')"></input>
-				<input id="B" type="button" class="letter" value="B" onclick="letterClicked('B')"></input>
-				<input id="N" type="button" class="letter" value="N" onclick="letterClicked('N')"></input>
-				<input id="M" type="button" class="letter" value="M" onclick="letterClicked('M')"></input>
-				<input id="BACK" type="button" class="letter-button" value="BACK" onclick="back()"></input>
-				<div class="message">
-				<span id="message"></span>
-				</div>
-			</div>			
-		</div>
+    <div class="letter-grid">
+      <div id="letters" style="margin:5px 2px">
+        <input id="Q" type="button" class="letter" value="Q" onclick="letterClicked('Q')"></input>
+        <input id="W" type="button" class="letter" value="W" onclick="letterClicked('W')"></input>
+        <input id="E" type="button" class="letter" value="E" onclick="letterClicked('E')"></input>
+        <input id="R" type="button" class="letter" value="R" onclick="letterClicked('R')"></input>
+        <input id="T" type="button" class="letter" value="T" onclick="letterClicked('T')"></input>
+        <input id="Y" type="button" class="letter" value="Y" onclick="letterClicked('Y')"></input>
+        <input id="U" type="button" class="letter" value="U" onclick="letterClicked('U')"></input>
+        <input id="I" type="button" class="letter" value="I" onclick="letterClicked('I')"></input>
+        <input id="O" type="button" class="letter" value="O" onclick="letterClicked('O')"></input>
+        <input id="P" type="button" class="letter" value="P" onclick="letterClicked('P')"></input>
+      </div>
+      <div style="margin:5px 14px">
+        <input id="A" type="button" class="letter" value="A" onclick="letterClicked('A')"></input>
+        <input id="S" type="button" class="letter" value="S" onclick="letterClicked('S')"></input>
+        <input id="D" type="button" class="letter" value="D" onclick="letterClicked('D')"></input>
+        <input id="F" type="button" class="letter" value="F" onclick="letterClicked('F')"></input>
+        <input id="G" type="button" class="letter" value="G" onclick="letterClicked('G')"></input>
+        <input id="H" type="button" class="letter" value="H" onclick="letterClicked('H')"></input>
+        <input id="J" type="button" class="letter" value="J" onclick="letterClicked('J')"></input>
+        <input id="K" type="button" class="letter" value="K" onclick="letterClicked('K')"></input>
+        <input id="L" type="button" class="letter" value="L" onclick="letterClicked('L')"></input>
+      </div>
+      <div style="margin:5px 2px;position:relative;">
+        <input id="ENTER" type="button" class="letter-button" value="ENTR" onclick="enter()"></input>
+        <input id="Z" type="button" class="letter" value="Z" onclick="letterClicked('Z')"></input>
+        <input id="X" type="button" class="letter" value="X" onclick="letterClicked('X')"></input>
+        <input id="C" type="button" class="letter" value="C" onclick="letterClicked('C')"></input>
+        <input id="V" type="button" class="letter" value="V" onclick="letterClicked('V')"></input>
+        <input id="B" type="button" class="letter" value="B" onclick="letterClicked('B')"></input>
+        <input id="N" type="button" class="letter" value="N" onclick="letterClicked('N')"></input>
+        <input id="M" type="button" class="letter" value="M" onclick="letterClicked('M')"></input>
+        <input id="BACK" type="button" class="letter-button" value="BACK" onclick="back()"></input>
+        <div class="message">
+        <span id="message"></span>
+        </div>
+      </div>
+    </div>
 
-		<div>
-			<input id="NEXT" type="button" class="next-word" value="NEXT WORD" onclick="next()" />
-		</div>
-		
-		<div>
-			<input id="SET" type="button" class="set-word" value="CHANGE WORD" onclick="set()" />
-		</div>
-		<div>
-			<input id="NEW" type="text" class="new-word"/>
-		</div>
-	</div>
+    <div>
+      <input id="NEXT" type="button" class="next-word" value="NEXT WORD" onclick="next()" />
+    </div>
+
+    <div>
+      <input id="SET" type="button" class="set-word" value="CHANGE WORD" onclick="set()" />
+    </div>
+    <div>
+      <input id="NEW" type="text" class="new-word"/>
+    </div>
+  </div>
 </body>
 </html>
