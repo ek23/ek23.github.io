@@ -3697,6 +3697,7 @@
 			showWord(word);
 		}
 		
+		let reviewing = false;
 		function nextWord(level, review) {
 			if (menuShown) {
 				showMenu();
@@ -3705,6 +3706,8 @@
 			if (listShown) {
 				toggleList();
 			}
+			
+			reviewing = review;
 			
 			const word = words.find((w) => {
 				if (review) {
@@ -3718,11 +3721,30 @@
 		}
 		
 		function navigate(direction) {
-			const word = words.find((w) => {
-				return w.id == currentWord.id + direction;
-			});
+			if (reviewing) {
+				const reviewWords = words.filter((w) => {
+					return w.level == currentWord.level && w.status == 2;
+				});
+				
+				const index = reviewWords.findIndex((w) => {
+					return w.word == currentWord.word;
+				});
+				
+				if (index >= 0 && index + direction >= 0 && index + direction <= reviewWords.length) {
+					const word = reviewWords[index + direction];
+					showWord(word);
+				}
+			} else {
+				const word = words.find((w) => {
+					return w.id == currentWord.id + direction && w.level == currentWord.level
+				});
+				
+				showWord(word);
+			}
+		}
+		
+		function navigateReviewWords(direction) {
 			
-			showWord(word);
 		}
 		
 		function showWord(word) {
