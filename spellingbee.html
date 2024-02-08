@@ -7,7 +7,6 @@
 		}
 	</script>
 	<script type="text/javascript">
-		let currentWord;
 		let words = [
 			{ id: 1, level: 1, word: "abaft" },
 			{ id: 2, level: 1, word: "abandon" },
@@ -3559,9 +3558,12 @@
 			{ id: 950, level: 3, word: "zemi" },
 			{ id: 951, level: 3, word: "zimocca" },
 			{ id: 952, level: 3, word: "zortzico" },
-			{ id: 953, level: 3, word: "zugzwang" },
-
+			{ id: 953, level: 3, word: "zugzwang" }
 		];
+		
+		let currentWord;
+		let currentCounter = 0;
+		let currentCorrectCounter = 0;
 		
 		function docReady(fn) {
 			// see if DOM is already available
@@ -3574,9 +3576,6 @@
 		}
 		
 		docReady(function() {
-			addLetters();
-			nextWord(1, false);
-			
 			const wordStatus = getStoredStatus();
 			words.forEach((word) => {
 				if (wordStatus.success.indexOf(word.word) >= 0) {
@@ -3585,6 +3584,10 @@
 					word.status = 2;
 				}
 			});
+			
+			addLetters();
+			showWord(words[0]);
+			
 		});
 		
 		function fromHTML(html, trim = true) {
@@ -3655,7 +3658,10 @@
 					const firstLetter = word.word.substring(0, 1).toUpperCase();
 					if (currentLetter != firstLetter) {
 						currentLetter = firstLetter;
-						let html = '<span id="letter-' + currentLetter + '" style="background:black;color:yellow;font-size:50px;padding-left:25px;margin-bottom:10px;">' + currentLetter + '</span>';
+						const letterCount = words.filter((w) => w.level == level && w.word.substring(0, 1).toUpperCase() == firstLetter).length;
+						const letterStatusCount = words.filter((w) => w.level == level && w.word.substring(0, 1).toUpperCase() == firstLetter && w.status).length;
+						const ratio = letterStatusCount + "/" + letterCount;
+						let html = '<div style="font-size:50px;background:black;color:yellow;margin-bottom:10px;"><span id="letter-' + currentLetter + '" style="padding-left:25px">' + currentLetter + '</span><span style="padding-right:15px;float:right;">' + ratio + '</span></div>';
 						if (currentLetter != "A") {
 							html = html.replace("margin-bottom", "margin-top:50px;margin-bottom");
 						}
@@ -3675,7 +3681,10 @@
 				}
 			});
 			
-			document.getElementById("list-title").innerHTML = level + " - Words of Champions";
+			const levelCount = words.filter((w) => w.level == level).length;
+			const levelStatusCount = words.filter((w) => w.level == level&& w.status).length;
+			document.getElementById("list-ratio").innerHTML = ratio = levelStatusCount + "/" + levelCount;
+			document.getElementById("list-title").innerHTML = "Level " + level +" Words";
 		}
 		
 		function showLetter(letter) {
@@ -3748,7 +3757,7 @@
 				currentWord = word;
 				document.getElementById("word-level").innerHTML = word.level;
 				document.getElementById("word-title").innerHTML = word.word;
-				document.getElementById("word-index").innerHTML = word.id;
+				document.getElementById("word-index").innerHTML = currentCorrectCounter + '/' + currentCounter;
 				document.getElementById("word-frame").src = "https://dictionary.com/browse/" + word.word;
 				
 				if (word.status == 1) {
@@ -3765,9 +3774,11 @@
 		}
 		
 		function complete(success) {
+			currentCounter++;
 			const wordStatus = getStoredStatus();
 			
 			if (success) {
+				currentCorrectCounter++;
 				if (currentWord.status != 1) {
 					wordStatus.success.push(currentWord.word);
 				}
@@ -3781,6 +3792,7 @@
 				document.getElementById("nav-success").style.color = "lawngreen";
 				document.getElementById("nav-review").style.color = "yellow";
 			} else {
+				
 				if (currentWord.status != 2) {
 					wordStatus.review.push(currentWord.word);
 				}
@@ -3795,6 +3807,7 @@
 				document.getElementById("nav-review").style.color = "orangered";
 			}
 			
+			document.getElementById("word-index").innerHTML = currentCorrectCounter + '/' + currentCounter;
 			saveStoredStatus(wordStatus);
 		}
 		
@@ -3811,6 +3824,12 @@
 		
 		function saveStoredStatus(wordStatus) {
 			localStorage.setItem("wordStatus", JSON.stringify(wordStatus));
+		}
+		
+		function resetCounters() {
+			currentCounter = 0;
+			currentCorrectCounter = 0;
+			showMenu();
 		}
 	</script>
 </head>
@@ -3836,6 +3855,7 @@
 			<div style="margin-top:15px;margin-left:60px;color:#EEEEEE;"><span onclick="showList(3)">List</span></div>
 			<div style="margin-top:15px;margin-left:60px;color:#EEEEEE;"><span onclick="nextWord(3, false)">Next</span></div>
 			<div style="margin-top:15px;margin-left:60px;color:#EEEEEE;"><span onclick="nextWord(3, true)">Review</span></div>
+			<div style="margin-left:25px;margin-top:55px;"><span onclick="resetCounters()">Reset Counter</span></div>
 		</div>
 	</div>
 	<div id="word" style="width:100%;">
@@ -3858,7 +3878,8 @@
 		<div id="list-header" style="height:6%;width:100%;display:flex">
 			<div style="width:calc(7% + 1px);padding-left:20px;font-size:50px;background:black;color:#EEEEEE;height:100%;display:flex;justify-content:center;align-items:center;"></div>
 			<div style="width:8%"></div>
-			<span id="list-title" style="width:85%;font-size:60px;font-weight:bold;display:flex;justify-content:start;align-items:center">1 - Words of Champions</span>
+			<span id="list-title" style="width:70%;font-size:60px;font-weight:bold;display:flex;justify-content:start;align-items:center">Level 1 Words</span>
+			<div id="list-ratio" style="width:15%;padding-right:20px;font-size:50px;color:darkgrey;display:flex;justify-content:end;align-items:center"></div>
 		</div>
 		<div id="list-body" style="height:82%;display:flex;flex-direction;">
 			<div id="list-letters" style="width:7%;padding-left:20px;font-size:50px;background:black;color:yellow;height:100%;display:flex;flex-direction:column;justify-content:start;align-items:start;"></div>
