@@ -4061,6 +4061,11 @@
             { id: 4051, level: 4, group: "P-4", word: "zwieback", choices: ["zuieback", "zweeback", "zwiback"], pronunciation: "ˈswē-ˌbak", audio: "https://media.merriam-webster.com/audio/prons/en/us/mp3/z/zwieba02.mp3" }
 		];
 		
+		window.addEventListener("beforeunload", (event) => {
+			event.preventDefault();
+			event.returnValue = true;
+		});			
+		
 		let currentWord;
 		let currentLevel = 1;
 		let currentCounter = 1;
