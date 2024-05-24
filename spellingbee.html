@@ -1,5 +1,6 @@
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://kit.fontawesome.com/237d1cc6e4.js" crossorigin="anonymous"></script>
 	<script type="text/css">
 		button: {
@@ -4174,7 +4175,7 @@
 						const letterCount = words.filter((w) => w.level == level && w.word.substring(0, 1).toUpperCase() == firstLetter).length;
 						const letterStatusCount = words.filter((w) => w.level == level && w.word.substring(0, 1).toUpperCase() == firstLetter && w.status).length;
 						const ratio = letterStatusCount + "/" + letterCount;
-						let html = '<div style="font-size:50px;background:black;color:yellow;margin-bottom:10px;"><span id="letter-' + currentLetter + '" style="padding-left:25px">' + currentLetter + '</span><span style="padding-right:15px;float:right;">' + ratio + '</span><span style="float:right;font-size:50px;margin-right:25px;" onclick="randomLetter(\'' + currentLetter + '\')" class="fa-solid fa-shuffle"></span></div>';
+						let html = '<div style="font-size:21px;background:black;color:yellow;margin-bottom:5px;"><span id="letter-' + currentLetter + '" style="padding-left:13px">' + currentLetter + '</span><span style="padding-right:8px;float:right;">' + ratio + '</span><span style="float:right;font-size:21px;margin-right:13px;" onclick="randomLetter(\'' + currentLetter + '\')" class="fa-solid fa-shuffle"></span></div>';
 						if (currentLetter != "A") {
 							html = html.replace("margin-bottom", "margin-top:50px;margin-bottom");
 						}
@@ -4182,11 +4183,11 @@
 						wordList.appendChild(div);
 					}
 					
-					let html = '<div><span style="padding-left:50px;padding-bottom:10px;font-size:50px;" onclick="selectWord(\'' + word.word + '\')">' + word.word + '</span></div>';
+					let html = '<div><span style="padding-left:25px;padding-bottom:5px;font-size:21px;" onclick="selectWord(\'' + word.word + '\')">' + word.word + '</span></div>';
 					if (word.status == 1) {
-						html = html.replace("</span>", '</span><span style="color:lawngreen;float:right; padding-right:25px;font-size:30px;" class="fa-solid fa-check"></span>');
+						html = html.replace("</span>", '</span><span style="color:lawngreen;float:right; padding-right:13px;font-size:15px;" class="fa-solid fa-check"></span>');
 					} else if (word.status == 2) {
-						html = html.replace("</span>", '</span><span style="color:orangered;float:right; padding-right:25px;font-size:30px;" class="fa-solid fa-x"></span>');
+						html = html.replace("</span>", '</span><span style="color:orangered;float:right; padding-right:13px;font-size:15px;" class="fa-solid fa-x"></span>');
 					}
 					
 					const div = fromHTML(html);
@@ -4201,7 +4202,7 @@
 			if (level == 4) {
 				document.getElementById("list-title").innerHTML = "Prelim Words";
 				document.getElementById("prelim-header").style.display = "block";
-				document.getElementById("list-words").style.height = "calc(100% - 290px)";
+				document.getElementById("list-words").style.height = "calc(100% - 145px)";
 			} else {
 				document.getElementById("list-title").innerHTML = "Level " + level +" Words";
 				document.getElementById("prelim-header").style.display = "none";
@@ -4585,92 +4586,92 @@
 </head>
 <body style="font-family:sans-serif">
 	<div id="title" style="height:6%;color:yellow;background:black;display:flex;width:100%;">
-		<span style="width:15%;padding-left:20px;font-size:50px;display:flex;align-items:center;justify-content:start;">
-			<button style="background:black;border:none" onclick="toggleMenu()"><span style="font-size:50px;color:yellow;" class="fa-solid fa-bars"></span></button>
+		<span style="width:15%;padding-left:10px;font-size:21px;display:flex;align-items:center;justify-content:start;">
+			<button style="background:black;border:none" onclick="toggleMenu()"><span style="font-size:21px;color:yellow;" class="fa-solid fa-bars"></span></button>
 		</span>
-		<span style="width:70%;font-size:50px;font-family:sans-serif;display:flex;align-items:center;justify-content:center;">Quint Spelling Bee</span>
-		<span style="width:15%;padding-right:20px;font-size:50px;display:flex;align-items:center;justify-content:end;" class="fa-brands fa-forumbee"></span>
+		<span style="width:70%;font-size:21px;font-family:sans-serif;display:flex;align-items:center;justify-content:center;">Quint Spelling Bee</span>
+		<span style="width:15%;padding-right:10px;font-size:21px;display:flex;align-items:center;justify-content:end;" class="fa-brands fa-forumbee"></span>
 	</div>
 	<div id="menu" style="position:absolute;top:calc(6% + 7px);width:40%;background:black;height:calc(88% - 20px);border-top:yellow 3px solid;border-bottom:yellow 3px solid;z-index:1;display:none;">
-		<div style="display:flex;color:yellow;font-size:50px;flex-direction:column">
-			<div style="margin-left:25px;margin-top:25px;"><span onclick="showList(1)">Level 1</span></div>
-			<div style="margin-left:25px;margin-top:25px;"><span onclick="showList(2)">Level 2</span></div>
-			<div style="margin-left:25px;margin-top:25px;"><span onclick="showList(3)">Level 3</span></div>
-			<div style="margin-left:25px;margin-top:25px;"><span onclick="showList(4)">Prelims</span></div>
-			<div style="margin-left:25px;margin-top:175px;"><span onclick="resetCounters()">Reset Counter</span></div>
-			<div style="margin-left:25px;margin-top:25px;"><span onclick="resetStorage()">Reset Storage</span></div>
+		<div style="display:flex;color:yellow;font-size:21px;flex-direction:column">
+			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList(1)">Level 1</span></div>
+			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList(2)">Level 2</span></div>
+			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList(3)">Level 3</span></div>
+			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList(4)">Prelims</span></div>
+			<div style="margin-left:12px;margin-top:85px;"><span onclick="resetCounters()">Reset Counter</span></div>
+			<div style="margin-left:12px;margin-top:12px;"><span onclick="resetStorage()">Reset Storage</span></div>
 		</div>
 	</div>
 	<div id="word" style="width:100%;">
 		<div id="word-header" style="height:6%;font-family:sans-serif;display:flex;width:100%">
-			<span id="word-level" style="width:15%;padding-left:20px;font-size:50px;color:darkgrey;display:flex;justify-content:start;align-items:center"></span>
-			<span id="word-title" style="width:70%;font-size:60px;font-weight:bold;display:flex;justify-content:center;align-items:center"></span>			
-			<span id="word-index" style="width:15%;padding-right:20px;font-size:50px;color:darkgrey;display:flex;justify-content:end;align-items:center"></span>
+			<span id="word-level" style="width:15%;padding-left:10px;font-size:21px;color:darkgrey;display:flex;justify-content:start;align-items:center"></span>
+			<span id="word-title" style="width:70%;font-size:25px;font-weight:bold;display:flex;justify-content:center;align-items:center"></span>			
+			<span id="word-index" style="width:15%;padding-right:10px;font-size:21px;color:darkgrey;display:flex;justify-content:end;align-items:center"></span>
 		</div>
 		<div id="word-flashcard" style="height:82%;width:100%">
 			<iframe id="word-frame" height="100%" width="100%" style="border:none;"></iframe>
 		</div>
-		<div id="word-multi" style="height:calc(82% - 75px);width:100%;text-align:center;">
+		<div id="word-multi" style="height:calc(82% - 35px);width:100%;text-align:center;">
 			<audio id="audio" src="https://www.merriam-webster.com/dictionary/Aegean?pronunciation&lang=en_us&dir=a&file=aegean01"></audio>
-			<div id="option0-button" style="margin:75px 2% 0 2%;padding:50px 0;font-size:60px;text-align:center;background:lightgray;border-radius:15px;" onclick="selectChoice('option0')"><span id="option0">tokanoma</span></div>
-			<div id="option1-button" style="margin:75px 2% 0 2%;padding:50px 0;font-size:60px;text-align:center;background:lightgray;border-radius:15px;" onclick="selectChoice('option1')"><span id="option1">tokanomah</span></div>
-			<div id="option2-button" style="margin:75px 2% 0 2%;padding:50px 0;font-size:60px;text-align:center;background:lightgray;border-radius:15px;" onclick="selectChoice('option2')"><span id="option2">tocanoma</span></div>
-			<div id="option3-button" style="margin:75px 2% 0 2%;padding:50px 0;font-size:60px;text-align:center;background:lightgray;border-radius:15px;" onclick="selectChoice('option3')"><span id="option3">abate</span></div>
-			<button id="word-pron" style="background:white;color:black;border:5px solid black;margin-top:75px;margin-bottom:5px;padding:40px;border-radius:15px;" onclick="document.getElementById('audio').play()"><span style="font-size:80px" class="fa-solid fa-volume-high"></span></button>
+			<div id="option0-button" style="margin:35px 2% 0 2%;padding:25px 0;font-size:30px;text-align:center;background:lightgray;border-radius:8px;" onclick="selectChoice('option0')"><span id="option0">tokanoma</span></div>
+			<div id="option1-button" style="margin:35px 2% 0 2%;padding:25px 0;font-size:30px;text-align:center;background:lightgray;border-radius:8px;" onclick="selectChoice('option1')"><span id="option1">tokanomah</span></div>
+			<div id="option2-button" style="margin:35px 2% 0 2%;padding:25px 0;font-size:30px;text-align:center;background:lightgray;border-radius:8px;" onclick="selectChoice('option2')"><span id="option2">tocanoma</span></div>
+			<div id="option3-button" style="margin:35px 2% 0 2%;padding:25px 0;font-size:30px;text-align:center;background:lightgray;border-radius:8px;" onclick="selectChoice('option3')"><span id="option3">abate</span></div>
+			<button id="word-pron" style="background:white;color:black;border:3px solid black;margin-top:35px;margin-bottom:3px;padding:20px;border-radius:8px;" onclick="document.getElementById('audio').play()"><span style="font-size:40px" class="fa-solid fa-volume-high"></span></button>
 		</div>
-		<div id="nav" style="height:6%;display:flex;justify-content:space-between;padding-left:50px;padding-right:50px;background:black">
-			<button style="background:black;color:yellow;border:none;margin-top:5px;margin-bottom:5px;" onclick="previousWord()"><span style="font-size:80px" class="fa-solid fa-arrow-left"></span></button>
-			<button id="nav-success" style="background:black;color:yellow;border:none;margin-top:5px;margin-bottom:5px;" onclick="complete(true)"><span style="font-size:80px" class="fa-solid fa-check"></span></button>
-			<button id="nav-review" style="background:black;color:yellow;border:none;margin-top:5px;margin-bottom:5px;" onclick="complete(false)"><span style="font-size:80px" class="fa-solid fa-x"></span></button>
-			<button style="background:black;color:yellow;border:none;margin-top:5px;margin-bottom:5px;" onclick="nextWord()"><span style="font-size:80px" class="fa-solid fa-arrow-right"></span></button>
+		<div id="nav" style="height:6%;display:flex;justify-content:space-between;padding-left:25px;padding-right:25px;background:black">
+			<button style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="previousWord()"><span style="font-size:40px" class="fa-solid fa-arrow-left"></span></button>
+			<button id="nav-success" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="complete(true)"><span style="font-size:40px" class="fa-solid fa-check"></span></button>
+			<button id="nav-review" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="complete(false)"><span style="font-size:40px" class="fa-solid fa-x"></span></button>
+			<button style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="nextWord()"><span style="font-size:40px" class="fa-solid fa-arrow-right"></span></button>
 		</div>
 	</div>
 	<div id="list" style="width:100%;display:none">
 		<div id="list-header" style="height:6%;width:100%;display:flex">
-			<div style="width:calc(7% + 1px);padding-left:20px;font-size:50px;background:black;color:#EEEEEE;height:100%;display:flex;justify-content:center;align-items:center;"></div>
+			<div style="width:calc(7% + 1px);padding-left:10px;font-size:21px;background:black;color:#EEEEEE;height:100%;display:flex;justify-content:center;align-items:center;"></div>
 			<div style="width:8%"></div>
-			<span id="list-title" style="width:70%;font-size:60px;font-weight:bold;display:flex;justify-content:start;align-items:center">Level 1 Words</span>
-			<div id="list-ratio" style="width:15%;padding-right:20px;font-size:50px;color:darkgrey;display:flex;justify-content:end;align-items:center"></div>
+			<span id="list-title" style="width:70%;font-size:25px;font-weight:bold;display:flex;justify-content:start;align-items:center">Level 1 Words</span>
+			<div id="list-ratio" style="width:15%;padding-right:10px;font-size:21px;color:darkgrey;display:flex;justify-content:end;align-items:center"></div>
 		</div>
 		<div id="list-body" style="height:82%;display:flex;flex-direction;">
-			<div id="list-letters" style="width:7%;padding-left:20px;font-size:50px;background:black;color:yellow;height:100%;display:flex;flex-direction:column;justify-content:start;align-items:start;"></div>
+			<div id="list-letters" style="width:7%;padding-left:10px;font-size:21px;background:black;color:yellow;height:100%;display:flex;flex-direction:column;justify-content:start;align-items:start;"></div>
 			<div style="width:8%"></div>
-			<div style="width:85%;margin-bottom:35px;">
-				<div id="prelim-header" style="margin-bottom:20px;">
+			<div style="width:85%;margin-bottom:18px;">
+				<div id="prelim-header" style="margin-bottom:10px;">
 					<div>
-						<span style="padding-left:50px;padding-bottom:10px;font-size:50px;">A-D</span>
-						<span style="float:right;font-size:50px;margin-right:425px;" onclick="randomGroup('P-1')" class="fa-solid fa-shuffle" aria-hidden="true"></span>
-						<span style="float:right;font-size:50px;margin-right:25px;" onclick="randomGroup('P-1', true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
+						<span style="padding-left:25px;padding-bottom:5px;font-size:21px;">A-D</span>
+						<span style="float:right;font-size:21px;margin-right:113px;" onclick="randomGroup('P-1')" class="fa-solid fa-shuffle" aria-hidden="true"></span>
+						<span style="float:right;font-size:21px;margin-right:13px;" onclick="randomGroup('P-1', true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
 					</div>
 					<div>
-						<span style="padding-left:50px;padding-bottom:10px;font-size:50px;">E-L</span>
-						<span style="float:right;font-size:50px;margin-right:425px;" onclick="randomGroup('P-2')" class="fa-solid fa-shuffle" aria-hidden="true"></span>
-						<span style="float:right;font-size:50px;margin-right:25px;" onclick="randomGroup('P-2', true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
+						<span style="padding-left:25px;padding-bottom:5px;font-size:21px;">E-L</span>
+						<span style="float:right;font-size:21px;margin-right:113px;" onclick="randomGroup('P-2')" class="fa-solid fa-shuffle" aria-hidden="true"></span>
+						<span style="float:right;font-size:21px;margin-right:13px;" onclick="randomGroup('P-2', true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
 					</div>
 					<div>
-						<span style="padding-left:50px;padding-bottom:10px;font-size:50px;">M-P</span>
-						<span style="float:right;font-size:50px;margin-right:425px;" onclick="randomGroup('P-3')" class="fa-solid fa-shuffle" aria-hidden="true"></span>
-						<span style="float:right;font-size:50px;margin-right:25px;" onclick="randomGroup('P-3', true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
+						<span style="padding-left:25px;padding-bottom:5px;font-size:21px;">M-P</span>
+						<span style="float:right;font-size:21px;margin-right:113px;" onclick="randomGroup('P-3')" class="fa-solid fa-shuffle" aria-hidden="true"></span>
+						<span style="float:right;font-size:21px;margin-right:13px;" onclick="randomGroup('P-3', true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
 					</div>
 					<div>
-						<span style="padding-left:50px;padding-bottom:10px;font-size:50px;">Q-Z</span>
-						<span style="float:right;font-size:50px;margin-right:425px;" onclick="randomGroup('P-4')" class="fa-solid fa-shuffle" aria-hidden="true"></span>
-						<span style="float:right;font-size:50px;margin-right:25px;" onclick="randomGroup('P-4', true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
+						<span style="padding-left:25px;padding-bottom:5px;font-size:21px;">R-Z</span>
+						<span style="float:right;font-size:21px;margin-right:113px;" onclick="randomGroup('P-4')" class="fa-solid fa-shuffle" aria-hidden="true"></span>
+						<span style="float:right;font-size:21px;margin-right:13px;" onclick="randomGroup('P-4', true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
 					</div>
 					<div>
-						<span style="padding-left:50px;padding-bottom:10px;font-size:50px;">BMs</span>
-						<span style="float:right;font-size:50px;margin-right:425px;" onclick="randomBookmarks()" class="fa-solid fa-shuffle" aria-hidden="true"></span>
-						<span style="float:right;font-size:50px;margin-right:25px;" onclick="randomBookmarks(true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
+						<span style="padding-left:25px;padding-bottom:5px;font-size:21px;">BMs</span>
+						<span style="float:right;font-size:21px;margin-right:113px;" onclick="randomBookmarks()" class="fa-solid fa-shuffle" aria-hidden="true"></span>
+						<span style="float:right;font-size:21px;margin-right:13px;" onclick="randomBookmarks(true)" class="fa-solid fa-list-ul" aria-hidden="true"></span>
 					</div>
 				</div>
-				<div id="list-words" style="font-size:40px;display:flex;flex-direction:column;overflow-y:scroll;"></div>
+				<div id="list-words" style="font-size:21px;display:flex;flex-direction:column;overflow-y:scroll;"></div>
 			</div>
 		</div>
-		<div id="set-options" style="height:6%;display:flex;justify-content:space-between;padding-left:50px;padding-right:50px;background:black">
-			<button id="set-random" style="background:black;color:yellow;border:none;margin-top:5px;margin-bottom:5px;" onclick="setRandom()"><span style="font-size:80px" class="fa-solid fa-shuffle"></span></button>
-			<button id="set-new" style="background:black;color:yellow;border:none;margin-top:5px;margin-bottom:5px;" onclick="setNew()"><span style="font-size:80px" class="fa-solid fa-circle-check"></span></button>
-			<button id="set-review" style="background:black;color:yellow;border:none;margin-top:5px;margin-bottom:5px;" onclick="setReview()"><span style="font-size:80px" class="fa-solid fa-circle-xmark"></span></button>
-			<button style="background:black;color:yellow;border:none;margin-top:5px;margin-bottom:5px;" onclick="nextWord()"><span style="font-size:80px" class="fa-solid fa-arrow-right"></span></button>
+		<div id="set-options" style="height:6%;display:flex;justify-content:space-between;padding-left:25px;padding-right:25px;background:black">
+			<button id="set-random" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="setRandom()"><span style="font-size:40px" class="fa-solid fa-shuffle"></span></button>
+			<button id="set-new" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="setNew()"><span style="font-size:40px" class="fa-solid fa-circle-check"></span></button>
+			<button id="set-review" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="setReview()"><span style="font-size:40px" class="fa-solid fa-circle-xmark"></span></button>
+			<button style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="nextWord()"><span style="font-size:40px" class="fa-solid fa-arrow-right"></span></button>
 		</div>
 	</div>
 </body>
