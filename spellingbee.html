@@ -4118,7 +4118,7 @@
 		});
 		
 		function addLetters() {
-			let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			let letters = "ABCDEFGHIKLMNOPRSTW";
 			let lettersList = document.getElementById("list-letters");
 			for (let i = 0; i < letters.length; i++) {
 				const letter = letters.substring(i, i + 1);
@@ -4586,20 +4586,20 @@
 </head>
 <body style="font-family:sans-serif">
 	<div id="title" style="height:8%;color:yellow;background:black;display:flex;width:100%;">
-		<span style="width:15%;padding-left:10px;font-size:21px;display:flex;align-items:center;justify-content:start;">
-			<button style="background:black;border:none" onclick="toggleMenu()"><span style="font-size:21px;color:yellow;" class="fa-solid fa-bars"></span></button>
+		<span style="width:15%;padding-left:10px;font-size:25px;display:flex;align-items:center;justify-content:start;">
+			<button style="background:black;border:none" onclick="toggleMenu()"><span style="font-size:25px;color:yellow;" class="fa-solid fa-bars"></span></button>
 		</span>
-		<span style="width:70%;font-size:21px;font-family:sans-serif;display:flex;align-items:center;justify-content:center;">Quint Spelling Bee</span>
-		<span style="width:15%;padding-right:10px;font-size:21px;display:flex;align-items:center;justify-content:end;" class="fa-brands fa-forumbee"></span>
+		<span style="width:70%;font-size:25px;font-family:sans-serif;display:flex;align-items:center;justify-content:center;">Quint Spelling Bee</span>
+		<span style="width:15%;padding-right:10px;font-size:25px;display:flex;align-items:center;justify-content:end;" class="fa-brands fa-forumbee"></span>
 	</div>
-	<div id="menu" style="position:absolute;top:calc(8% + 7px);width:40%;background:black;height:calc(88% - 20px);border-top:yellow 3px solid;border-bottom:yellow 3px solid;z-index:1;display:none;">
+	<div id="menu" style="position:absolute;top:calc(8% + 7px);width:40%;background:black;height:calc(84% - 20px);border-top:yellow 3px solid;border-bottom:yellow 3px solid;z-index:1;display:none;">
 		<div style="display:flex;color:yellow;font-size:21px;flex-direction:column">
 			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList(1)">Level 1</span></div>
 			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList(2)">Level 2</span></div>
 			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList(3)">Level 3</span></div>
 			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList(4)">Prelims</span></div>
-			<div style="margin-left:12px;margin-top:85px;"><span onclick="resetCounters()">Reset Counter</span></div>
-			<div style="margin-left:12px;margin-top:12px;"><span onclick="resetStorage()">Reset Storage</span></div>
+			<div style="margin-left:12px;margin-top:85px;"><span onclick="resetCounters()">Reset<br>Counter</span></div>
+			<div style="margin-left:12px;margin-top:12px;"><span onclick="resetStorage()">Reset<br>Storage</span></div>
 		</div>
 	</div>
 	<div id="word" style="width:100%;">
