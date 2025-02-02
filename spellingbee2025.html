@@ -3725,6 +3725,7 @@
 			document.getElementById("team2-score").innerHTML = "00";
 			document.getElementById("team1-score").classList.add("team-turn");
 			document.getElementById("team2-score").classList.remove("team-turn");
+			document.getElementById("nav-next").disabled = false;
 			
 			if (wordsPreset) {
 				words = wordsPreset;
@@ -3784,7 +3785,7 @@
 				document.getElementById("word-title").innerHTML = word.pronunciations[0];
 				document.getElementById("word-def").innerHTML = word.definition;
 				document.getElementById("word-origin").innerHTML = word.part_of_speech + ": " + word.origin;
-				document.getElementById("nav-progress").innerHTML = String(currentCounter).padStart(2, "0");
+				document.getElementById("nav-progress").innerHTML = String(currentCounter) + "-" + word.level;
 				
 				setOptions(word.word, word.misspellings);
 				
@@ -3870,6 +3871,8 @@
 				team2Score += wordPoints;
 				document.getElementById("team2-score").innerHTML = String(team2Score).padStart(2, "0");
 			}
+			
+			setTimeout(() => { nextWord(); }, 650);
 		}
 		
 		function reviewWord() {
@@ -3966,18 +3969,20 @@
 		</div>
 		<div id="word-multi" style="height:calc(76% - 15px);width:100%;text-align:center;">
 			<audio id="audio" src="https://www.merriam-webster.com/dictionary/Aegean?pronunciation&lang=en_us&dir=a&file=aegean01"></audio>
-			<div style="margin-top:15px"><span id="word-def">made to feel uncomfortable or embarrassed by something that has happened or been done or said.</span></div>
-			<div id="option0-button" style="margin:15px 2% 0 2%;padding:15px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option0')"><span id="option0">tokanoma</span></div>
-			<div id="option1-button" style="margin:15px 2% 0 2%;padding:15px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option1')"><span id="option1">tokanomah</span></div>
-			<div id="option2-button" style="margin:15px 2% 0 2%;padding:15px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option2')"><span id="option2">tocanoma</span></div>
-			<div id="option3-button" style="margin:15px 2% 0 2%;padding:15px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option3')"><span id="option3">abate</span></div>
-			<div style="margin-top:15px;"<span id="word-origin" style="margin-top:40px;">This word passed to English from Latin.</span></div>
-			<button id="word-pron" style="background:white;color:black;border:3px solid black;margin-top:30px;margin-bottom:3px;padding:10px;border-radius:6px;" onclick="document.getElementById('audio').play()"><span style="font-size:40px" class="fa-solid fa-volume-high"></span></button>
+			<div style="margin:10px 5px 0 5px;text-align:left;max-height:107px;overflow:hidden;"><span id="word-def">made to feel uncomfortable or embarrassed by something that has happened or been done or said.</span></div>
+			<div id="option0-button" style="margin:10px 2% 0 2%;padding:10px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option0')"><span id="option0">tokanoma</span></div>
+			<div id="option1-button" style="margin:10px 2% 0 2%;padding:10px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option1')"><span id="option1">tokanomah</span></div>
+			<div id="option2-button" style="margin:10px 2% 0 2%;padding:10px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option2')"><span id="option2">tocanoma</span></div>
+			<div id="option3-button" style="margin:10px 2% 0 2%;padding:10px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option3')"><span id="option3">abate</span></div>
+			<div style="display:flex;flex-direction:row;justify-content:space-between;margin:10px 5px 0 5px;">
+			<div style="text-align:left;max-height:72px;overflow:hidden;"><span id="word-origin">This word passed to English from Latin.</span></div>
+			<button id="word-pron" style="background:white;color:black;border:3px solid black;padding:10px;border-radius:6px;" onclick="document.getElementById('audio').play()"><span style="font-size:40px" class="fa-solid fa-volume-high"></span></button>
+			</div>
 		</div>
-		<div id="nav" style="height:8%;display:flex;justify-content:space-between;padding-left:25px;padding-right:25px;background:black">
-			<span id="nav-progress" style="background:black;color:yellow;font-size:40px;margin-top:9px;margin-bottom:3px;font-weight:bold">01</span>
-			<button id="nav-review" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="reviewWord()"><span style="font-size:40px" class="fa-solid fa-x"></span></button>
-			<button id="nav-next" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="nextWord()"><span style="font-size:40px" class="fa-solid fa-arrow-right"></span></button>
+		<div id="nav" style="height:8%;display:flex;padding-left:25px;padding-right:25px;background:black">
+			<span id="nav-progress" style="background:black;color:yellow;font-size:40px;margin-top:3px;margin-bottom:3px;font-weight:bold;width:33%;">01</span>
+			<button id="nav-review" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;width:33%;text-align:center;" onclick="reviewWord()"><span style="font-size:40px" class="fa-solid fa-x"></span></button>
+			<button id="nav-next" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;width:33%;text-align:right;" onclick="nextWord()"><span style="font-size:40px" class="fa-solid fa-arrow-right"></span></button>
 		</div>
 	</div>
 	<div id="list" style="width:100%;display:none">
