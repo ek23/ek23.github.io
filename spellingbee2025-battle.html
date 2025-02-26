@@ -16,9 +16,9 @@
 	</style>
 	<script type="text/javascript">
 		let dictionary = [
-			{"id":"492","level":"1","word":"anime","group":"Asian East","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/492.mp3","definition":"an originally Japanese style of motion picture made from drawings or computer graphics that is characterized by colorful graphics and usually large-eyed characters, and that often has fantastic or futuristic themes.","origin":"This word came to English from Japanese, which took it from a Latin-derived English word.","pronunciations":["A-nuh-may"],"misspellings":["aname","animae","anamae"]},
-			{"id":"1412","level":"2","word":"aikido","group":"Asian East","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/1412.mp3","definition":"a Japanese martial art that uses techniques emphasizing throws and holds to neutralize or redirect an opponent’s attacks.","origin":"This word is from Japanese.","pronunciations":["ahy-KEE-doh"],"misspellings":["aikedo","ikedo","ikido"]},
-			{"id":"1558","level":"2","word":"billabong","group":"Asian East","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/1558.mp3","definition":"a stagnant pond by a river.","origin":"This word is from a native Australian name.","pronunciations":["BIL-uh-bahng"],"misspellings":["bilabong","bilibong","billibong"]},
+			{"id":"492","level":"1","word":"anime","group":"Asian East1","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/492.mp3","definition":"an originally Japanese style of motion picture made from drawings or computer graphics that is characterized by colorful graphics and usually large-eyed characters, and that often has fantastic or futuristic themes.","origin":"This word came to English from Japanese, which took it from a Latin-derived English word.","pronunciations":["A-nuh-may"],"misspellings":["aname","animae","anamae"]},
+			{"id":"1412","level":"2","word":"aikido","group":"Asian East1","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/1412.mp3","definition":"a Japanese martial art that uses techniques emphasizing throws and holds to neutralize or redirect an opponent’s attacks.","origin":"This word is from Japanese.","pronunciations":["ahy-KEE-doh"],"misspellings":["aikedo","ikedo","ikido"]},
+			{"id":"1558","level":"2","word":"billabong","group":"Asian East1","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/1558.mp3","definition":"a stagnant pond by a river.","origin":"This word is from a native Australian name.","pronunciations":["BIL-uh-bahng"],"misspellings":["bilabong","bilibong","billibong"]},
 			{"id":"1595","level":"2","word":"bulgogi","group":"Asian East","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/1595.mp3","definition":"a Korean food consisting of marinated, thin-sliced beef that is served panfried or grilled.","origin":"This word is from Korean.","pronunciations":["BUL-GOH-gee"],"misspellings":["bullgogi","bulgoge","bulgoagi"]},
 			{"id":"1698","level":"2","word":"cochin","group":"Asian East","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/1698.mp3","definition":"a large domestic fowl of an Asian breed having soft thick plumage of white, black, buff or partridge, small wings and tail, and densely feathered legs and feet.","origin":"This word is from a Chinese geographical name.","pronunciations":["KOH-chin"],"misspellings":["kochin","coachin","cochinn"]},
 			{"id":"2061","level":"2","word":"goji berry","group":"Asian East","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/2061.mp3","definition":"the dark red, mildly tart fruit of a thorny, chiefly Asian shrub that is typically dried and used in beverages.","origin":"The first part of this entry is from an originally Chinese word and the second part is an English word.","pronunciations":["GOH-jee-BER-ee"],"misspellings":["gojji berry","goje berry","gojje berry"]},
@@ -3746,6 +3746,7 @@
 		function nextWord() {
 			if (optionsHidden) {
 				setOptions(currentWord.word, currentWord.misspellings);
+				return;
 			}
 		
 			if (!choiceSelected) {
@@ -3773,8 +3774,6 @@
 			remainingWords = words.filter(word => !word.complete);
 			
 			if (remainingWords.length == 1) {
-				document.getElementById("nav-next").disabled = true;
-				document.getElementById("nav-next").style.color = "lightgray";
 				updateListStatus();
 				showWord(remainingWords[0]);
 			} else if (remainingWords.length > 1) {
@@ -3842,6 +3841,12 @@
 			document.getElementById("option1-button").style.background = "lightgray";
 			document.getElementById("option2-button").style.background = "lightgray";
 			document.getElementById("option3-button").style.background = "lightgray";
+			
+			const remainingWords = words.filter(word => !word.complete);
+			if (remainingWords.length == 1) {
+				document.getElementById("nav-next").disabled = true;
+				document.getElementById("nav-next").style.color = "lightgray";
+			}
 		}
 		
 		function selectChoice(option) {
