@@ -2413,7 +2413,7 @@
 			let wordStatus = getStoredStatus();
 			
 			if (currentWord.review && !review) {
-				const index = wordStatus.map(status => status.word).indexOf(currentWord.root);
+				const index = wordStatus.map(status => status.root).indexOf(currentWord.root);
 				if (index >= 0) {
 					wordStatus.splice(index, 1);
 				}
