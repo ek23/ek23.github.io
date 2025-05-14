@@ -1053,7 +1053,7 @@
 		
 		function resetBookmarks() {
 			if (confirm("Reset Word Bookmarks?")) {
-				localStorage.setItem("wordStatus", "");
+				localStorage.setItem("wordStatusL3", "");
 				location.reload()
 			}
 		}
@@ -1310,10 +1310,10 @@
 		}
 		
 		function getStoredStatus() {
-			let wordStatus = localStorage.getItem("wordStatus");
+			let wordStatus = localStorage.getItem("wordStatusL3");
 			if (!wordStatus) {
 				wordStatus = [];
-				localStorage.setItem("wordStatus", JSON.stringify(wordStatus));
+				localStorage.setItem("wordStatusL3", JSON.stringify(wordStatus));
 				return wordStatus;
 			} else {
 				return JSON.parse(wordStatus);
@@ -1321,7 +1321,7 @@
 		}
 		
 		function saveStoredStatus(wordStatus) {
-			localStorage.setItem("wordStatus", JSON.stringify(wordStatus));
+			localStorage.setItem("wordStatusL3", JSON.stringify(wordStatus));
 		}
 		
 		function updateWordStatus(review) {
