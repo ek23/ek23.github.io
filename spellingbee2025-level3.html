@@ -1041,6 +1041,9 @@
 		function toggleMenu() {
 			menuShown = !menuShown;
 			if (menuShown) {
+				const wordStatus = getStoredStatus();
+				document.getElementById("review-label").innerHTML = "Review " + wordStatus.length;
+				
 				document.getElementById("menu").style.display = "block";
 				document.getElementById("word").style.opacity = "0.2";
 				document.getElementById("list").style.opacity = "0.2";
@@ -1386,7 +1389,7 @@
 		<div style="display:flex;color:yellow;font-size:21px;flex-direction:column">
 			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList()">New</span></div>
 			<div style="margin-left:12px;margin-top:12px;"><span onclick="restartGame()">Restart</span></div>
-		    <div style="margin-left:12px;margin-top:12px;"><span onclick="reviewBookmarks()">Review</span></div>
+		    <div style="margin-left:12px;margin-top:12px;"><span onclick="reviewBookmarks()" id="review-label">Review</span></div>
 			<div style="margin-left:12px;margin-top:45px;"><span onclick="resetLists()">Reset<br>Lists</span></div>
 			<div style="margin-left:12px;margin-top:45px;"><span onclick="resetBookmarks()">Reset<br>Bookmarks</span></div>
 		</div>
