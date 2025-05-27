@@ -1,0 +1,679 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://kit.fontawesome.com/237d1cc6e4.js" crossorigin="anonymous"></script>
+	<style>
+		button {
+			border: none;
+		}
+		.team-turn {
+			border: 1px solid lightgray;
+			border-radius: 8px;
+			background: lightgray;
+			color: yellow !important;
+			margin: 3px 0;
+		}
+	</style>
+	<script type="text/javascript">
+		let dictionary = [
+{"id":"3478","level":"3","word":"hypaethral","group":"Classic","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3478.mp3","definition":"open to the sky.","origin":"This word is from an originally Greek word that passed into Latin and an English element.","pronunciations":["hahy-PEETH-rul"],"misspellings":["hypethral","hipaethral","hipethral"],"complete":true,"review":true},
+{"id":"3308","level":"3","word":"cynocephali","group":"Classic","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3308.mp3","definition":"people of a fabled race of dogheaded people.","origin":"This word is from a Greek-derived Latin word.","pronunciations":["sin-uh-SEF-uh-lahy"],"misspellings":["synocephali","sinocephali","cynosephali"],"complete":true,"review":true},
+{"id":"3369","level":"3","word":"Esau","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3369.mp3","definition":"one that sacrifices a permanent interest for a more immediate but temporary interest; also : one that may easily be taken advantage of.","origin":"This word is from a name that went from Hebrew to Greek to Latin.","pronunciations":["EE-sah"],"misspellings":["Ysau","Esow","Ysaw"],"complete":true,"review":true},
+{"id":"3862","level":"3","word":"syncope","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3862.mp3","definition":"loss of consciousness resulting from arrest of the blood supply to the brain.","origin":"This word went from Greek to Latin.","pronunciations":["SING-kuh-pee"],"misspellings":["sincope","sincopie","syncopie"],"complete":true,"review":true},
+{"id":"3664","level":"3","word":"oxyacetylene","group":"Classic","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3664.mp3","definition":"utilizing a mixture of oxygen and a colorless explosive hydrocarbon gas that is used in welding and soldering.","origin":"This word is from Greek-derived and Latin-derived elements.","pronunciations":["ahk-see-uh-SET-uh-leen"],"misspellings":["oxyaceteline","oxyacetyline","oxyacetelene"],"complete":true,"review":true},
+{"id":"3142","level":"3","word":"astilbe","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3142.mp3","definition":"any plant of a genus of Asiatic perennials with leaves in groups of three and large flower clusters composed of spikes and small white flowers.","origin":"This word was formed in Latin from originally Greek parts.","pronunciations":["uh-STIL-bee"],"misspellings":["astillbe","astillby","astilby"],"complete":true,"review":true},
+{"id":"3109","level":"3","word":"anaphylaxis","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3109.mp3","definition":"extreme sensitivity (typically to an insect bite or sting) after the initial exposure.","origin":"This word consists of two originally Greek elements that both became Latin.","pronunciations":["an-uh-fuh-LAK-sus"],"misspellings":["anaphylaxes","anephylaxes","anephylaxis"],"complete":true,"review":true},
+{"id":"3139","level":"3","word":"ascites","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3139.mp3","definition":"the abnormal gathering of fluid in the stomach.","origin":"This word went from Greek to Latin to English.","pronunciations":["uh-SAHY-teez"],"misspellings":["ascities","ascitaes","asciteas"],"complete":true,"review":true},
+{"id":"3498","level":"3","word":"isagoge","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3498.mp3","definition":"an academic introduction to a branch of research or study.","origin":"This word is from an originally Greek word that passed into Latin.","pronunciations":["AHY-suh-goh-jee"],"misspellings":["isagogy","isegogy","isegoge"],"complete":true,"review":true},
+{"id":"3736","level":"3","word":"pylorus","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3736.mp3","definition":"the opening from the stomach into the intestine.","origin":"This word came from Latin, which took it from Greek.","pronunciations":["pahy-LOHR-us"],"misspellings":["pilorus","pilorous","pylorous"],"complete":true,"review":true},
+{"id":"3450","level":"3","word":"gypsophila","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3450.mp3","definition":"a plant with small delicate pyramid-shaped flower clusters — called also baby’s breath.","origin":"The first part of this word is from an originally Semitic word that passed through Greek to Latin, and the second part is from Greek-derived Latin.","pronunciations":["jip-SAH-fuh-luh"],"misspellings":["gipsophila","jypsophila","jipsophila"],"complete":true,"review":true},
+{"id":"3097","level":"3","word":"alleluiatic","group":"Classic","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3097.mp3","definition":"of or relating to a religious interjection used to express praise, joy, or thanks.","origin":"This word came from Latin, which formed it from a Hebrew-derived Greek element.","pronunciations":["al-uh-loo-YAT-ik"],"misspellings":["aleluiatic","allaluiatic","alleluatic"],"complete":true,"review":true},
+{"id":"3252","level":"3","word":"cecidium","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3252.mp3","definition":"a swelling or excrescence of the tissues of a plant that results usually from the attacks of insects, mites, or other parasites and is often distinguished by characteristic shape or color — also called a gall.","origin":"This word passed from Greek to Latin.","pronunciations":["sih-SID-ee-um"],"misspellings":["cecidiem","cicidium","cecidiam"],"complete":true,"review":true},
+{"id":"3149","level":"3","word":"avgolemono","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3149.mp3","definition":"a chicken soup made with egg yolks and lemon juice.","origin":"This word is from Greek.","pronunciations":["ahv-goh-LEM-uh-noh"],"misspellings":["avgolemeno","avgholemono","avgholemeno"],"complete":true,"review":true},
+{"id":"3947","level":"3","word":"uraeus","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3947.mp3","definition":"a stylized likeness of the sacred asp worn on the headdress of ancient rulers as a symbol of sovereignty.","origin":"This word is from an originally Greek word that passed into Latin.","pronunciations":["yuh-REE-us"],"misspellings":["urius","yurius","yureus"],"complete":true,"review":true},
+{"id":"3127","level":"3","word":"apophyge","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3127.mp3","definition":"the small hollow curvature given to the top (as in a Doric column) or bottom (as in an Ionic or Corinthian column) of the shaft of a column where it expands to meet the edge of the fillet.","origin":"This word is from Greek.","pronunciations":["uh-PAH-fuh-jee"],"misspellings":["apophage","epophage","apofygie"],"complete":true,"review":true},
+{"id":"3256","level":"3","word":"chalaza","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3256.mp3","definition":"either of a pair of spiral bands of thickened albuminous substance in the white of a bird's egg that extend out from opposite sides of the yolk to the ends of the egg.","origin":"This word went from Greek to Latin.","pronunciations":["kuh-LAY-zuh"],"misspellings":["kellaza","kalaza","chelazza"],"complete":true,"review":true},
+{"id":"3433","level":"3","word":"glyceraldehyde","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3433.mp3","definition":"a sweet crystalline compound formed in the breakdown of sugars.","origin":"This word is from a part that went from Greek to French plus a part that went from Arabic through Spanish to Latin plus a part that went from Greek to Latin.","pronunciations":["glih-sur-AL-duh-hahyd"],"misspellings":["glisseraldehide","glyceraldehide","glisseraldehyde"],"complete":true,"review":true},
+{"id":"3850","level":"3","word":"stygian","group":"Classic","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3850.mp3","definition":"deathly.","origin":"This word consists of a part from a Greek name that passed into Latin plus an English element.","pronunciations":["STIJ-ee-un"],"misspellings":["stigean","stygean","stigian"],"complete":true,"review":true},
+{"id":"3063","level":"3","word":"acidophilus","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3063.mp3","definition":"a lactic-acid producing bacterium that is added to dairy products (such as yogurt) or prepared as a dietary supplement to promote intestinal health.","origin":"This word is formed in Latin from a Latin and an originally Greek element.","pronunciations":["a-suh-DAH-fuh-lus"],"misspellings":["acidaphilus","acidofilus","acidophillus"],"complete":true,"review":true},
+{"id":"3658","level":"3","word":"oryx","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3658.mp3","definition":"any antelope of a genus of large African antelopes having long cylindrical nearly straight horns projecting backward.","origin":"This word is from an originally Greek word that passed into Latin.","pronunciations":["OH-riks"],"misspellings":["oricks","orryx","orricks"],"complete":true,"review":true},
+{"id":"3456","level":"3","word":"hebdomadal","group":"Classic","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3456.mp3","definition":"weekly.","origin":"This word is from an originally Greek word that passed into Latin plus an English element.","pronunciations":["heb-DAH-muh-dul"],"misspellings":["hebdomadel","hebdamadel","hebdamadal"],"complete":true,"review":true},
+{"id":"3269","level":"3","word":"ciliopathy","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3269.mp3","definition":"any of a group of genetic disorders (such as polycystic kidney disease) that are caused by the abnormal formation or function of cellular hairlike processes, and often share common features (such as brain anomalies and retinal degeneration).","origin":"This word is from Latin and Greek parts.","pronunciations":["sil-ee-AH-puh-thee"],"misspellings":["siliopathy","sciliopathy","cilliopathy"],"complete":true,"review":true},
+{"id":"3879","level":"3","word":"telamon","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3879.mp3","definition":"a supporting column carved as a male figure.","origin":"This word is from an originally Greek word that passed into Latin.","pronunciations":["TEL-uh-mahn"],"misspellings":["tellamon","tellemon","telemon"],"complete":true,"review":true},
+{"id":"3330","level":"3","word":"diaphanous","group":"Classic","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3330.mp3","definition":"delicate and transparent.","origin":"This word is from an originally Greek word that passed into Latin.","pronunciations":["dahy-A-fuh-nus"],"misspellings":["diaphunous","diaphenous","diaphonous"],"complete":true,"review":true},
+{"id":"3929","level":"3","word":"triskelion","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3929.mp3","definition":"a motif of three typically curved or bent branches radiating from a middle point.","origin":"This word is from an originally Greek word.","pronunciations":["trahy-SKEL-ee-un"],"misspellings":["triskellion","triskelian","triskellian"],"complete":true,"review":true},
+{"id":"3462","level":"3","word":"hepatectomy","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3462.mp3","definition":"a medical procedure involving the removal of the liver or a part of the liver from the body.","origin":"This word is made up of originally Greek elements.","pronunciations":["hep-uh-TEK-tuh-mee"],"misspellings":["hepitectomy","hepetectomy","hepotectomy"],"complete":true,"review":true},
+{"id":"3427","level":"3","word":"ginglymus","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3427.mp3","definition":"a hinge joint that allows movement in one plane only.","origin":"This word is from Greek.","pronunciations":["JING-glih-mus"],"misspellings":["ginglymas","ginglemus","gingllymus"],"complete":true,"review":true},
+{"id":"3379","level":"3","word":"ethylene","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3379.mp3","definition":"a petrochemical gas used as an anesthetic and to ripen fruits.","origin":"This word was created by modern science out of Greek-derived elements.","pronunciations":["ETH-uh-leen"],"misspellings":["ethalene","ethelene","etholene"],"complete":true,"review":true},
+{"id":"3936","level":"3","word":"tryptophan","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3936.mp3","definition":"a crystalline amino acid that is necessary in the nutrition of animals and humans.","origin":"This word is made up of originally Greek elements.","pronunciations":["TRIP-tuh-fan"],"misspellings":["tryptofan","tryptaphan","tryptafan"],"complete":true,"review":true},
+{"id":"3463","level":"3","word":"Herodotean","group":"Classic","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3463.mp3","definition":"of, relating to, or suggestive of a 5th century B.C.E. Greek historian.","origin":"This word is from a Greek name and an English element.","pronunciations":["hih-rah-duh-TEE-un"],"misspellings":["Herodotian","Herodotien","Herodoteon"],"complete":true,"review":true},
+{"id":"3671","level":"3","word":"Panathenaea","group":"Classic","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3671.mp3","definition":"the annual or quadrennial festivities of ancient Athens in honor of a major Greek deity celebrated in their greater form for several days during the third year of each olympiad and including a great procession.","origin":"This word is from an originally Greek part and a Greek name.","pronunciations":["pa-nath-uh-NEE-uh"],"misspellings":["Panathanaea","Panathanaia","Panathenaia"],"complete":true,"review":true},
+{"id":"3362","level":"3","word":"epistemology","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3362.mp3","definition":"the study of the method and grounds of knowledge especially with reference to its limits and validity; broadly : the theory of knowledge.","origin":"This word is from originally Greek elements.","pronunciations":["uh-pist-uh-MAHL-uh-jee"],"misspellings":["epistamology","epistimology","epistammology"],"complete":true,"review":true},
+{"id":"3137","level":"3","word":"aretalogy","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3137.mp3","definition":"an account of the miraculous deeds of a god or hero.","origin":"This word is originally Greek.","pronunciations":["a-ruh-TA-luh-jee"],"misspellings":["arretology","aratology","aretalegy"],"complete":true,"review":true},
+{"id":"3514","level":"3","word":"kalopanax","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3514.mp3","definition":"a showy Japanese tree of the family Araliaceae that has foliage like that of the castor-oil plant.","origin":"This word is made up of originally Greek parts.","pronunciations":["kuh-LAH-puh-naks"],"misspellings":["kolapanax","kolopanax","kalapanax"],"complete":true,"review":true},
+{"id":"3731","level":"3","word":"pschent","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3731.mp3","definition":"the headdress of the later Egyptian pharaohs formed of the two crowns worn by the respective pharaohs of Upper Egypt and Lower Egypt before the union of the country under one rule.","origin":"This word is from an Egyptian-derived Greek word.","pronunciations":["skent"],"misspellings":["pskent","pscent","psckent"],"complete":true,"review":true},
+{"id":"3860","level":"3","word":"sybaritic","group":"Classic","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3860.mp3","definition":"characterized by luxury.","origin":"This word is from a Greek geographical name.","pronunciations":["sih-buh-RIH-tik"],"misspellings":["sybyritic","syberitic","syboritic"],"complete":true,"review":true},
+{"id":"3983","level":"3","word":"xiphophyllous","group":"Classic","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3983.mp3","definition":"having sword-shaped leaves.","origin":"This word consists of originally Greek parts.","pronunciations":["zih-fuh-FIL-us"],"misspellings":["xiphaphillous","xiphaphyllous","xiphophillous"],"complete":true,"review":true},
+{"id":"3366","level":"3","word":"ergatogyne","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3366.mp3","definition":"a wingless queen ant resembling a worker.","origin":"This word is from Greek.","pronunciations":["ur-GAT-uh-jahyn"],"misspellings":["ergatogin","ergatogine","errgatogyne"],"complete":true,"review":true},
+{"id":"3649","level":"3","word":"onychorrhexis","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3649.mp3","definition":"longitudinal ridging and splitting of the finger and toe nails.","origin":"This word is formed from Greek elements.","pronunciations":["ahn-ih-kuh-REK-sis"],"misspellings":["onachorhexis","onychorhexis","onachorrhexis"],"complete":true,"review":true},
+{"id":"3920","level":"3","word":"toreutics","group":"Classic","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3920.mp3","definition":"the art or process of ornamenting metal especially by indenting or embossing.","origin":"This word is from Greek.","pronunciations":["tuh-ROO-tiks"],"misspellings":["tureutics","tareutics","tereutics"],"complete":true,"review":true},
+{"id":"3926","level":"3","word":"trichinosis","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3926.mp3","definition":"infestation with or sickness caused by certain worms that is caught by eating infested food, such as raw pork.","origin":"This word is from Greek.","pronunciations":["trik-uh-NOH-sis"],"misspellings":["tricinosis","trichinossis","tricinossis"],"complete":true,"review":true},
+{"id":"3591","level":"3","word":"Menaia","group":"Classic","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3591.mp3","definition":"collections of hymns and prayers for all days of the year in the Eastern Orthodox Church arranged in calendar order and usually divided into 12 volumes each for a different month.","origin":"This word is from Greek.","pronunciations":["muh-NAY-uh"],"misspellings":["Menaea","Menaa","Menaya"],"complete":true,"review":true},
+{"id":"3367","level":"3","word":"Eris","group":"Classic","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3367.mp3","definition":"a dwarf planet with a mean distance from the sun of 67 astronomical units and a diameter of 1,500 miles.","origin":"This word is from a Greek mythological name.","pronunciations":["ER-is"],"misspellings":["Erys","Aeris","Aerys"],"complete":true,"review":true},
+{"id":"3171","level":"3","word":"Beaux arts","group":"French","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3171.mp3","definition":"art (such as painting, sculpture, or music) concerned primarily with the creation of beautiful things.","origin":"This word entry is from French.","pronunciations":["BOH-ZAHR"],"misspellings":["Bauze arts","Beaus arts","Baux arts"],"complete":true,"review":true},
+{"id":"3182","level":"3","word":"betony","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3182.mp3","definition":"an herb whose soft leaves can be used to dress wounds.","origin":"This word is from a Latin name that became a Latin word before going to French and then English.","pronunciations":["BET-uh-nee"],"misspellings":["betany","bettony","bettany"],"complete":true,"review":true},
+{"id":"3760","level":"3","word":"renvoi","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3760.mp3","definition":"the act by a government of returning a foreign-born resident to his or her original country.","origin":"This word is from Latin-derived French.","pronunciations":["ren-VOY"],"misspellings":["renvoy","regnvoi","regnvoy"],"complete":true,"review":true},
+{"id":"3640","level":"3","word":"nouveau","group":"French","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3640.mp3","definition":"newly arrived or developed : immature.","origin":"This word is from a Latin-derived French word.","pronunciations":["noo-VOH"],"misspellings":["neuveau","nuveau","nooveau"],"complete":true,"review":true},
+{"id":"3135","level":"3","word":"ardoise","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3135.mp3","definition":"a shade of gray that is tinted with purple.","origin":"This word is from French.","pronunciations":["ahr-DWAHZ"],"misspellings":["ardois","ardoys","ardoyse"],"complete":true,"review":true},
+{"id":"3283","level":"3","word":"concours","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3283.mp3","definition":"a public competition : contest.","origin":"This word is from Latin-derived French.","pronunciations":["kohn-kur"],"misspellings":["concoeurs","concour","concoeur"],"complete":true,"review":true},
+{"id":"3177","level":"3","word":"berceuse","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3177.mp3","definition":"a lullaby.","origin":"This word is from a French word.","pronunciations":["ber-SUZ"],"misspellings":["berceuze","berceus","berseuss"],"complete":true,"review":true},
+{"id":"3701","level":"3","word":"pierrot","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3701.mp3","definition":"a standard comic character of old French pantomime usually with a whitened face and loose white clothes.","origin":"This word is from a French name.","pronunciations":["PEE-uh-roh"],"misspellings":["piereau","pierot","pierreau"],"complete":true,"review":true},
+{"id":"3411","level":"3","word":"gaillardia","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3411.mp3","definition":"a western American herb with downy leaves and long showy flower heads.","origin":"This word is from a French name.","pronunciations":["guh-LAHR-dee-uh"],"misspellings":["gallardia","gaillardea","gallardea"],"complete":true,"review":true},
+{"id":"3934","level":"3","word":"trous-de-loup","group":"French","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3934.mp3","definition":"pits in the form of an inverted cone or pyramid having a pointed stake in the middle constructed as obstacles to the movements of an enemy.","origin":"This word is from French.","pronunciations":["troo-duh-LOO"],"misspellings":["troux-de-loup","troux-de-lou","trou-de-loux"],"complete":true,"review":true},
+{"id":"3302","level":"3","word":"crokinole","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3302.mp3","definition":"a game in which disks are driven or snapped from the edge of a table at a mark in the center.","origin":"This word is from French.","pronunciations":["KROH-kuh-nohl"],"misspellings":["krokignol","croakinole","krokinowl"],"complete":true,"review":true},
+{"id":"3293","level":"3","word":"coterie","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3293.mp3","definition":"a clique or tight-knit group.","origin":"This word is from Latin-derived French.","pronunciations":["KOH-tuh-ree"],"misspellings":["cotiery","cotery","cotierie"],"complete":true,"review":true},
+{"id":"3206","level":"3","word":"brume","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3206.mp3","definition":"fog or mist.","origin":"This word went from Latin to Occitan to French.","pronunciations":["broom"],"misspellings":["bruhme","bruhm","brum"],"complete":true,"review":true},
+{"id":"3111","level":"3","word":"ancien régime","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3111.mp3","definition":"a system or mode no longer prevailing.","origin":"This word is from French.","pronunciations":["ahns-yahn-ray-ZHEEM"],"misspellings":["ancein régime","encein régime","anceine régime"],"complete":true,"review":true},
+{"id":"3312","level":"3","word":"de rigueur","group":"French","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3312.mp3","definition":"required by etiquette or custom.","origin":"This word entry is from French.","pronunciations":["duh-ree-GUR"],"misspellings":["de rigeur","de rigeuer","de rigueuer"],"complete":true,"review":true},
+{"id":"3383","level":"3","word":"exchequer","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3383.mp3","definition":"a royal or national treasury.","origin":"This word is from a Persian-derived Arabic word that passed into French before becoming English.","pronunciations":["EKS-chek-ur"],"misspellings":["exchecker","exchequere","exchekker"],"complete":true,"review":true},
+{"id":"3720","level":"3","word":"poudre B","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3720.mp3","definition":"a smokeless French rifle powder consisting essentially of about two thirds guncotton and one third pyroxylin.","origin":"This word was formed in French from an originally Latin word and a part derived from a French name.","pronunciations":["pau-dur-BEE"],"misspellings":["poudre Bie","powder Bee","powder B"],"complete":true,"review":true},
+{"id":"3953","level":"3","word":"velouté","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3953.mp3","definition":"a white sauce that consists of cream and stock made thick with flour and butter.","origin":"This word was formed in French from a Latin-derived element.","pronunciations":["vuh-loo-TAH"],"misspellings":["veloutée","veloutait","veloutais"],"complete":true,"review":true},
+{"id":"3409","level":"3","word":"gaffe","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3409.mp3","definition":"an action or mistake that causes social or political embarrassment.","origin":"This word is from a word that went from Provençal to French.","pronunciations":["gaf"],"misspellings":["gaphe","gafe","gaph"],"complete":true,"review":true},
+{"id":"3682","level":"3","word":"parti pris","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3682.mp3","definition":"a preconceived opinion : bias, partiality, prejudice.","origin":"This word entry is from French.","pronunciations":["pahr-tee-PREE"],"misspellings":["parti prix","parte pris","parte prix"],"complete":true,"review":true},
+{"id":"3357","level":"3","word":"en arrière","group":"French","part_of_speech":"adverb","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3357.mp3","definition":"toward the back : backward — used of a movement or of the execution of a step in ballet.","origin":"This word entry is from Latin-derived French.","pronunciations":["ahn-ahr-yehr"],"misspellings":["en arrièr","in arrière","in arrièr"],"complete":true,"review":true},
+{"id":"3373","level":"3","word":"espadrille","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3373.mp3","definition":"a casual shoe with a fabric upper and a rope sole.","origin":"This word is from a word that went from Latin to Provençal to French.","pronunciations":["ES-puh-dril"],"misspellings":["espedrill","espadrill","espedrille"],"complete":true,"review":true},
+{"id":"3235","level":"3","word":"cantatrice","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3235.mp3","definition":"a female singer, especially of opera.","origin":"This word is from a Latin word that became Italian and then French.","pronunciations":["kahn-tuh-TREE-chay"],"misspellings":["cantetrice","cantitrice","cantotrice"],"complete":true,"review":true},
+{"id":"3662","level":"3","word":"outré","group":"French","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3662.mp3","definition":"bizarre, extravagant.","origin":"This word is from Latin-derived French.","pronunciations":["oo-TRAY"],"misspellings":["outrait","outrée","outrais"],"complete":true,"review":true},
+{"id":"3492","level":"3","word":"insouciance","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3492.mp3","definition":"an attitude of not worrying about what others think of one's work or behavior.","origin":"This word was formed in French from Latin-derived elements.","pronunciations":["in-SOO-see-unts"],"misspellings":["insouceansce","insouceance","insouciansce"],"complete":true,"review":true},
+{"id":"3350","level":"3","word":"élan","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3350.mp3","definition":"spirit and flair.","origin":"This word is from a French word.","pronunciations":["ay-lahnh"],"misspellings":["éelanne","éelan","élanne"],"complete":true,"review":true},
+{"id":"3788","level":"3","word":"saccharide","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3788.mp3","definition":"a simple sugar or an aggregate of sugars.","origin":"This word is formed from an originally Sanskrit element that went from Pali to Greek to Latin plus a French-derived element.","pronunciations":["SAK-uh-rahyd"],"misspellings":["sacharide","sacchareid","sachareid"],"complete":true,"review":true},
+{"id":"3296","level":"3","word":"coulisse","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3296.mp3","definition":"a side scene of the stage in a theater or the space between the side scenes.","origin":"This word is from a Latin-derived French word.","pronunciations":["koo-LEES"],"misspellings":["culisse","culise","coulise"],"complete":true,"review":true},
+{"id":"3919","level":"3","word":"toque","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3919.mp3","definition":"a close-fitted hat for women that is small, soft and without a brim.","origin":"This word is from an originally Spanish word that passed into French.","pronunciations":["tohk"],"misspellings":["toucque","touque","tocque"],"complete":true,"review":true},
+{"id":"3700","level":"3","word":"piccata","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3700.mp3","definition":"thin slices of meat (such as veal) that are sautéed and served in a sauce of butter and lemon.","origin":"This word is from Italian, which probably formed it from a Latin-derived French word.","pronunciations":["pih-KAH-tuh"],"misspellings":["piccatta","picata","picatta"],"complete":true,"review":true},
+{"id":"3399","level":"3","word":"force majeure","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3399.mp3","definition":"an event that cannot reasonably be foreseen or controlled.","origin":"This word entry is from French.","pronunciations":["fors-mah-ZHUR"],"misspellings":["force majeur","forse majeur","forse majeure"],"complete":true,"review":true},
+{"id":"3267","level":"3","word":"choucroute","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3267.mp3","definition":"salted and fermented cabbage.","origin":"This word is made up of a French part and a part that went from German to French.","pronunciations":["shoo-KROOT"],"misspellings":["chucroute","choucrute","chucrute"],"complete":true,"review":true},
+{"id":"3300","level":"3","word":"couverture","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3300.mp3","definition":"chocolate which contains large amounts of cocoa butter, typically used for candy coating.","origin":"This word is from French.","pronunciations":["koo-vur-TOOER"],"misspellings":["couverteur","coeuverteur","coeuverture"],"complete":true,"review":true},
+{"id":"3353","level":"3","word":"embouchure","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3353.mp3","definition":"the position of the lips in playing a wind instrument.","origin":"This word came from French, which formed it from Latin-derived elements.","pronunciations":["AHM-boo-shur"],"misspellings":["ambouchure","ambouchoure","embouchoure"],"complete":true,"review":true},
+{"id":"3298","level":"3","word":"coup de grace","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3298.mp3","definition":"an occurrence or action that brings an end to something.","origin":"This word entry is made up of Latin-derived French elements.","pronunciations":["koo-duh-GRAHS"],"misspellings":["coup de gras","cou de gras","cou de grace"],"complete":true,"review":true},
+{"id":"3899","level":"3","word":"tic douloureux","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3899.mp3","definition":"paroxysmal neuralgia involving one or more branches of the trigeminal nerve, being often extremely severe.","origin":"This word entry is from French.","pronunciations":["tik-doo-luh-ROO"],"misspellings":["tic douloureu","tic deuloureu","tic deuloureux"],"complete":true,"review":true},
+{"id":"3818","level":"3","word":"serin","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3818.mp3","definition":"a small European finch related to the canary.","origin":"Originally from Latin, this word perhaps passed to French from Old Provençal.","pronunciations":["suh-RAN"],"misspellings":["seren","serryn","seran"],"complete":true,"review":true},
+{"id":"3179","level":"3","word":"Bernoulli effect","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3179.mp3","definition":"an effect observed in hydrodynamics where the pressure in a stream of fluid is reduced as the speed of flow is increased.","origin":"This word entry is from a Swiss name and a word that passed from Latin to French to English.","pronunciations":["bur-NOO-lee-eh-FEKT"],"misspellings":["Bernouli effect","Burnoulli effect","Bernulli effect"],"complete":true,"review":true},
+{"id":"3580","level":"3","word":"marcel","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3580.mp3","definition":"a soft wave or series waves made in the hair with a heated curling iron.","origin":"This word is from a French name.","pronunciations":["mahr-SEL"],"misspellings":["marcelle","marsel","marselle"],"complete":true,"review":true},
+{"id":"3199","level":"3","word":"boudin","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3199.mp3","definition":"a spicy meat or fish sausage.","origin":"This word is from a French word.","pronunciations":["boo-DAN"],"misspellings":["boudanne","boudan","boudinne"],"complete":true,"review":true},
+{"id":"3181","level":"3","word":"bêtise","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3181.mp3","definition":"a foolish or unthinking act.","origin":"This word is from an originally Latin-derived French word.","pronunciations":["bay-TEEZ"],"misspellings":["bêtese","baitese","baitise"],"complete":true,"review":true},
+{"id":"3198","level":"3","word":"bouclé","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3198.mp3","definition":"a rough, loopy fabric.","origin":"This word is from Latin-derived French.","pronunciations":["boo-KLAY"],"misspellings":["bouclay","buclé","buclay"],"complete":true,"review":true},
+{"id":"3295","level":"3","word":"coulibiac","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3295.mp3","definition":"fish that has been wrapped in pastry dough and baked.","origin":"This word is from a word that went from Russian to French.","pronunciations":["koo-lee-BYAHK"],"misspellings":["coullibiac","coulibeac","coullibeac"],"complete":true,"review":true},
+{"id":"3289","level":"3","word":"contretemps","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3289.mp3","definition":"mishap, predicament.","origin":"This word is from a French word made up of Latin-derived elements.","pronunciations":["kahn-truh-TAHN"],"misspellings":["cantratent","contratemps","contretent"],"complete":true,"review":true},
+{"id":"3309","level":"3","word":"daguerreotype","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3309.mp3","definition":"a photograph produced on a silver-plated sheet of copper.","origin":"This word is from a French name plus a part that went from Greek to French.","pronunciations":["duh-GER-oh-tahyp"],"misspellings":["daguerrotype","daguerotype","daguereotype"],"complete":true,"review":true},
+{"id":"3839","level":"3","word":"spodumene","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3839.mp3","definition":"a mineral that is white to yellowish, purplish, or emerald-green color and that occurs in often large prismatic crystals.","origin":"Originally Greek, this word went from German to probably French before becoming English.","pronunciations":["SPAH-juh-meen"],"misspellings":["spodgemene","spodgamene","spodomene"],"complete":true,"review":true},
+{"id":"3423","level":"3","word":"gendarme","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3423.mp3","definition":"a European police officer, especially one in France.","origin":"This word is from a French word.","pronunciations":["ZHAHN-dahrm"],"misspellings":["gendarm","jendarme","jendarm"],"complete":true,"review":true},
+{"id":"3766","level":"3","word":"risorgimento","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3766.mp3","definition":"a period of revival or rebirth.","origin":"This word came from Italian, which formed it from Latin-derived elements.","pronunciations":["ree-sorj-uh-MEN-toh"],"misspellings":["risorggimento","resorggimento","resorgimento"],"complete":true,"review":true},
+{"id":"3103","level":"3","word":"amaryllis","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3103.mp3","definition":"an African plant with a large bell-shaped flower that is typically white, pinkish or red.","origin":"This word is probably from a Roman literary name.","pronunciations":["am-uh-RIL-us"],"misspellings":["ameryllis","amyrillis","amarillis"],"complete":true,"review":true},
+{"id":"3673","level":"3","word":"panettone","group":"French","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3673.mp3","definition":"a yeast-leavened holiday bread with raisins and candied fruit.","origin":"This word is from Italian, which formed it from Latin-derived elements.","pronunciations":["pah-nuh-TOH-nee"],"misspellings":["panattone","panatone","panetone"],"complete":true,"review":true},
+{"id":"3270","level":"3","word":"cioppino","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3270.mp3","definition":"a dish of seasoned fish and shellfish cooked in tomato sauce.","origin":"This word is from an Italian word.","pronunciations":["chuh-PEE-noh"],"misspellings":["chiappino","chiopino","ciapino"],"complete":true,"review":true},
+{"id":"3993","level":"3","word":"Zanni","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3993.mp3","definition":"an impulsive clown in masked comedy from Italy that acts as a comic servant and performs tricks and acrobatics.","origin":"This word is from a name that went from Hebrew to Greek to Latin to Italian.","pronunciations":["ZAH-nee"],"misspellings":["Dzani","Dzanni","Zani"],"complete":true,"review":true},
+{"id":"3250","level":"3","word":"cavalletti","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3250.mp3","definition":"a series of timber jumps that are adjustable in height for schooling horses.","origin":"This word came from Italian, which formed it from a Latin word.","pronunciations":["kav-uh-LET-ee"],"misspellings":["cavalleti","cavelletti","cavaletti"],"complete":true,"review":true},
+{"id":"3699","level":"3","word":"piatti","group":"Latin","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3699.mp3","definition":"cymbals.","origin":"This word is from a word that went from Greek to Latin to Italian.","pronunciations":["PYAH-tee"],"misspellings":["piati","peatti","peati"],"complete":true,"review":true},
+{"id":"3288","level":"3","word":"contrapposto","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3288.mp3","definition":"a body position used in art in which the hips, shoulders and head are turned in different directions.","origin":"This word is from Italian, which formed it from Latin.","pronunciations":["kohn-truh-PAH-stoh"],"misspellings":["contrapasto","contropposto","controposto"],"complete":true,"review":true},
+{"id":"3713","level":"3","word":"Ponzi","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3713.mp3","definition":"a type of investment fraud.","origin":"This word is from an Italian-American name.","pronunciations":["PAHN-zee"],"misspellings":["Panzi","Panze","Ponze"],"complete":true,"review":true},
+{"id":"3692","level":"3","word":"petechia","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3692.mp3","definition":"a minute reddish or purplish spot containing blood that appears in skin or mucous membrane as a result of localized hemorrhage.","origin":"This word went from Latin to Italian.","pronunciations":["puh-TEE-kee-uh"],"misspellings":["petechea","petichea","petichia"],"complete":true,"review":true},
+{"id":"3207","level":"3","word":"bruschetta","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3207.mp3","definition":"an appetizer of grilled bread topped with tomatoes, olive oil, garlic and herbs.","origin":"This word is from Italian, which may have taken it from a Latin word.","pronunciations":["broo-SHEH-tuh"],"misspellings":["bruscheta","bruschete","bruschette"],"complete":true,"review":true},
+{"id":"3426","level":"3","word":"giallolino","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3426.mp3","definition":"any of a variety of yellow pigments.","origin":"This word is from Italian.","pronunciations":["jah-luh-LEE-noh"],"misspellings":["gialolino","giallalino","gialalino"],"complete":true,"review":true},
+{"id":"3897","level":"3","word":"Thomism","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3897.mp3","definition":"a theological theory deriving from the Italian theologian Aquinas.","origin":"This word is probably from an Italian name plus a Latin element.","pronunciations":["TOH-mih-zum"],"misspellings":["Tomeism","Thomeism","Tomism"],"complete":true,"review":true},
+{"id":"3555","level":"3","word":"loggia","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3555.mp3","definition":"an open gallery in the side of a building, often facing an open court.","origin":"This word is from a French word that passed to Italian.","pronunciations":["LOH-jee-uh"],"misspellings":["laggia","logia","lagia"],"complete":true,"review":true},
+{"id":"3094","level":"3","word":"alate","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3094.mp3","definition":"having wings.","origin":"This word is from Latin.","pronunciations":["AY-layt"],"misspellings":["aylate","ailate","aelate"],"complete":true,"review":true},
+{"id":"3562","level":"3","word":"lunulae","group":"Latin","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3562.mp3","definition":"the whitish marks at the base of fingernails.","origin":"This word is from Latin.","pronunciations":["LOON-yuh-lee"],"misspellings":["lunulay","lunyulae","loonulae"],"complete":true,"review":true},
+{"id":"3414","level":"3","word":"galena","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3414.mp3","definition":"a bluish gray mineral consisting of native lead sulfide occurring in cubic or octahedral crystals.","origin":"This word is from Latin.","pronunciations":["guh-LEE-nuh"],"misspellings":["gulena","gelena","gilena"],"complete":true,"review":true},
+{"id":"3324","level":"3","word":"desiccate","group":"Latin","part_of_speech":"verb","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3324.mp3","definition":"to dehydrate or parch.","origin":"This word is from Latin.","pronunciations":["DEH-suh-kayt"],"misspellings":["desicate","dessiccate","dessicate"],"complete":true,"review":true},
+{"id":"3494","level":"3","word":"internecine","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3494.mp3","definition":"deadly.","origin":"This word is from Latin.","pronunciations":["in-tur-NEH-seen"],"misspellings":["internesine","internescine","internecsine"],"complete":true,"review":true},
+{"id":"3284","level":"3","word":"connoisseur","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3284.mp3","definition":"one who is an authority on a subject.","origin":"This word came from French, which formed it from a Latin word.","pronunciations":["kah-nuh-SUR"],"misspellings":["conoisseur","conoissoeur","connoissoeur"],"complete":true,"review":true},
+{"id":"3653","level":"3","word":"oppidan","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3653.mp3","definition":"related to a town.","origin":"This word is from Latin.","pronunciations":["AH-puh-dun"],"misspellings":["oppidun","oppidon","oppiden"],"complete":true,"review":true},
+{"id":"3833","level":"3","word":"soirée","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3833.mp3","definition":"a party that happens in the evening.","origin":"This word came from French, which formed it from a Latin word.","pronunciations":["swah-RAY"],"misspellings":["soirait","soirais","soiré"],"complete":true,"review":true},
+{"id":"3487","level":"3","word":"in medias res","group":"Latin","part_of_speech":"adverb","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3487.mp3","definition":"in or into the middle of a narrative or plot without the formality of an introduction or other preliminary.","origin":"This word entry is from Latin.","pronunciations":["in-MAY-dee-ahs-RAYS"],"misspellings":["in medeas res","en medeas res","en medias res"],"complete":true,"review":true},
+{"id":"3626","level":"3","word":"nescience","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3626.mp3","definition":"ignorance.","origin":"This word is from Latin.","pronunciations":["NEH-shuns"],"misspellings":["nescianse","nesciance","nesciense"],"complete":true,"review":true},
+{"id":"3803","level":"3","word":"scaberulous","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3803.mp3","definition":"possessing extremely small scales, spots or points.","origin":"This word is from an originally Latin element plus an English element.","pronunciations":["skuh-BER-uh-lus"],"misspellings":["scaberalous","scaberolous","scaberilous"],"complete":true,"review":true},
+{"id":"3600","level":"3","word":"miscible","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3600.mp3","definition":"able to be mixed together without separating.","origin":"This word is from Latin.","pronunciations":["MIS-uh-bul"],"misspellings":["missible","miscable","missable"],"complete":true,"review":true},
+{"id":"3951","level":"3","word":"valvata","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3951.mp3","definition":"any snail of a genus of freshwater operculate snails having the gill attached only by the base so that it forms a process like a feather outside the shell when extended.","origin":"This word is from Latin.","pronunciations":["val-VAH-tuh"],"misspellings":["valllvata","valvatuh","valvatah"],"complete":true,"review":true},
+{"id":"3729","level":"3","word":"pruritus","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3729.mp3","definition":"itching due to irritation of sensory nerve endings.","origin":"This word is from Latin.","pronunciations":["pruh-RAHY-tus"],"misspellings":["pruritous","pruritas","pruritis"],"complete":true,"review":true},
+{"id":"3595","level":"3","word":"micellar","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3595.mp3","definition":"of, relating to, or characterized by highly associated particles of a colloidal solution built up from polymeric molecules or ions.","origin":"This word is made up of originally Latin elements.","pronunciations":["mahy-SEL-ur"],"misspellings":["miceler","micelar","maiceller"],"complete":true,"review":true},
+{"id":"3843","level":"3","word":"Strelitzia","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3843.mp3","definition":"a small genus of usually large African herbs resembling the banana and having rigid leaves and richly colored flowers with three sepals and three very irregular petals.","origin":"This word is from a geographical name plus a Latin element.","pronunciations":["strih-LIT-see-uh"],"misspellings":["Strelitseia","Strelitzea","Strellytsia"],"complete":true,"review":true},
+{"id":"3568","level":"3","word":"mademoiselle","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3568.mp3","definition":"a French governess or nurse.","origin":"This word is from French, which probably formed it from a Latin word.","pronunciations":["ma-dum-wuh-ZEL"],"misspellings":["madamoiselle","madameoiselle","mademoisselle"],"complete":true,"review":true},
+{"id":"3688","level":"3","word":"pejorate","group":"Latin","part_of_speech":"verb","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3688.mp3","definition":"to make something worse or lower its value.","origin":"This word is from Latin.","pronunciations":["PEH-juh-rayt"],"misspellings":["pejorrate","pejerrate","pejerate"],"complete":true,"review":true},
+{"id":"3221","level":"3","word":"caesious","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3221.mp3","definition":"having a blue color very low in chroma.","origin":"This word is from Latin.","pronunciations":["SEEZ-ee-us"],"misspellings":["cesious","caezious","caecious"],"complete":true,"review":true},
+{"id":"3260","level":"3","word":"chasuble","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3260.mp3","definition":"a sleeveless outer garment that is open at the sides and is worn by an officiating priest.","origin":"This word came from French, which formed it from a Latin word.","pronunciations":["CHA-zuh-bul"],"misspellings":["chasubel","chazuble","chassuble"],"complete":true,"review":true},
+{"id":"3659","level":"3","word":"ostium","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3659.mp3","definition":"one of the slits in the heart of an arthropod by which the blood enters from the pericardium.","origin":"This word is from Latin.","pronunciations":["AH-stee-um"],"misspellings":["astium","osstium","ostiuhm"],"complete":true,"review":true},
+{"id":"3387","level":"3","word":"farrago","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3387.mp3","definition":"a disordered or confused collection (as of words or ideas).","origin":"This word is from Latin.","pronunciations":["fuh-RAH-goh"],"misspellings":["furrago","ferrago","firrago"],"complete":true,"review":true},
+{"id":"3165","level":"3","word":"battue","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3165.mp3","definition":"the driving or drawing out of game from cover especially by beating woods and bushes.","origin":"This word came from French, which formed it from a Latin word.","pronunciations":["ba-TOO"],"misspellings":["batue","battyue","batieu"],"complete":true,"review":true},
+{"id":"3913","level":"3","word":"toile","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3913.mp3","definition":"a type of fabric printed with designs (such as landscapes or flowers) in one color on a white or cream background.","origin":"This word came from French, which formed it from a Latin word.","pronunciations":["twahl"],"misspellings":["toille","twale","twalle"],"complete":true,"review":true},
+{"id":"3790","level":"3","word":"Sagittarius","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3790.mp3","definition":"a southern zodiacal constellation that is represented by the figure of a centaur shooting an arrow.","origin":"This word is from Latin.","pronunciations":["saj-uh-TAR-ee-us"],"misspellings":["Saggitarius","Sagattarius","Sagittareus"],"complete":true,"review":true},
+{"id":"3761","level":"3","word":"rescissible","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3761.mp3","definition":"capable of being canceled or made legally invalid.","origin":"This word is formed from a Latin element plus an English element.","pronunciations":["rih-SIS-uh-bul"],"misspellings":["riscessible","rescessible","riscissible"],"complete":true,"review":true},
+{"id":"3178","level":"3","word":"bergère","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3178.mp3","definition":"an armchair with upholstered fabric popular in the 18th century.","origin":"This word is from a French word that came from Latin.","pronunciations":["behr-ZHER"],"misspellings":["burgère","bergière","burgière"],"complete":true,"review":true},
+{"id":"3077","level":"3","word":"affiche","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3077.mp3","definition":"a notice printed on one side of a sheet for posting in a public place.","origin":"This word came from French, which formed it from Latin.","pronunciations":["a-FEESH"],"misspellings":["affeesh","affishe","afiche"],"complete":true,"review":true},
+{"id":"3488","level":"3","word":"in nuce","group":"Latin","part_of_speech":"adverb","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3488.mp3","definition":"in a nutshell.","origin":"This word entry is from Latin.","pronunciations":["IN-NOO-kay"],"misspellings":["in nuka","en nuce","en nuka"],"complete":true,"review":true},
+{"id":"3380","level":"3","word":"étouffée","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3380.mp3","definition":"a shellfish stew of Cajun influence served over rice.","origin":"This word came from French, which formed it from a Latin word.","pronunciations":["ay-too-FAY"],"misspellings":["étouffais","étouffay","étouffait"],"complete":true,"review":true},
+{"id":"3687","level":"3","word":"Patripassianism","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3687.mp3","definition":"the doctrine that in the sufferings of Jesus Christ God the Father also suffered.","origin":"This word is from Latin plus an English element.","pronunciations":["pa-truh-PAS-ee-uh-niz-um"],"misspellings":["Patrepassianism","Patrepasseanism","Patripasseanism"],"complete":true,"review":true},
+{"id":"3583","level":"3","word":"martinoe","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3583.mp3","definition":"a North American plant with spotted flowers and a capsule with a long curving beak — called also unicorn plant.","origin":"This word is from a Latin word that consists of an English name plus a Latin element.","pronunciations":["MAHR-tun-oh"],"misspellings":["martinow","martenow","martenoe"],"complete":true,"review":true},
+{"id":"3601","level":"3","word":"mittimus","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3601.mp3","definition":"a warrant committing the person specified to prison.","origin":"This word is from Latin.","pronunciations":["MIT-uh-mus"],"misspellings":["mittamus","mittemus","mittymus"],"complete":true,"review":true},
+{"id":"3281","level":"3","word":"colubrine","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3281.mp3","definition":"relating to or resembling a snake.","origin":"This word is from Latin.","pronunciations":["KAH-luh-brahyn"],"misspellings":["kolubrine","collubrine","calebrine"],"complete":true,"review":true},
+{"id":"3703","level":"3","word":"pinniped","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3703.mp3","definition":"an animal in a suborder of water-dwelling, flesh-eating mammals that includes the walruses and the seals.","origin":"This word is from Latin.","pronunciations":["PIN-uh-ped"],"misspellings":["pinnaped","piniped","pinaped"],"complete":true,"review":true},
+{"id":"3272","level":"3","word":"cirri","group":"Latin","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3272.mp3","definition":"white filmy varieties of cloud usually formed in the highest cloud region and normally consisting of minute ice crystals.","origin":"This word is from Latin.","pronunciations":["SIR-ahy"],"misspellings":["sirri","scirri","cieri"],"complete":true,"review":true},
+{"id":"3891","level":"3","word":"Teutonic","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3891.mp3","definition":"Germanic.","origin":"This word was formed in Latin from a Latin name.","pronunciations":["too-TAH-nik"],"misspellings":["Toutonic","Tutonic","Tuetonic"],"complete":true,"review":true},
+{"id":"3810","level":"3","word":"sciolistic","group":"Latin","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3810.mp3","definition":"having to do with superficial knowledge or to a person whose knowledge is superficial.","origin":"This word consists of a Latin part plus two English elements.","pronunciations":["sahy-uh-LIS-tik"],"misspellings":["scialistic","scyalistic","scyolistic"],"complete":true,"review":true},
+{"id":"3352","level":"3","word":"eluate","group":"Latin","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3352.mp3","definition":"the washings obtained by extraction (as from a solution containing a previously adsorbed substance).","origin":"This word consists of an originally Latin element plus an English element.","pronunciations":["EL-yuh-wut"],"misspellings":["elluate","eluwate","elluwate"],"complete":true,"review":true},
+{"id":"3076","level":"3","word":"aethalium","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3076.mp3","definition":"a sessile flat encrusted fruiting body in several genera of the slime molds formed by the fusion of many plasmodia.","origin":"This word was formed in Latin from Greek elements.","pronunciations":["ee-THAYL-ee-um"],"misspellings":["ethalium","aethaylium","aethelium"],"complete":true,"review":true},
+{"id":"3565","level":"3","word":"macigno","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3565.mp3","definition":"a thick and extensive deposit of primarily sandstone formed adjacent to a rising mountain belt that is especially common in the Alpine region of Europe.","origin":"This word is from a Greek-derived Latin word that passed to Italian.","pronunciations":["muh-CHEEN-yoh"],"misspellings":["machigno","maccingo","mucigno"],"complete":true,"review":true},
+{"id":"3685","level":"3","word":"pastitsio","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3685.mp3","definition":"a baked dish of Greece that is made of layers of ground meat and pasta and usually topped with cheese and white sauce.","origin":"This word is from Greek, which formed it from Latin-derived Italian.","pronunciations":["pah-STEET-see-oh"],"misspellings":["paustitccio","pastitccio","paustitsio"],"complete":true,"review":true},
+{"id":"3986","level":"3","word":"yosenabe","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3986.mp3","definition":"a soup made of vegetables and seafood in broth.","origin":"This word is from Japanese.","pronunciations":["yoh-suh-NAH-bay"],"misspellings":["yosinaba","yosenaba","yosinabe"],"complete":true,"review":true},
+{"id":"3515","level":"3","word":"kangri","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3515.mp3","definition":"in Kashmir, a wicker basket that is small, portable, lined in pottery and used as a warming stove.","origin":"This word is from Hindi.","pronunciations":["KUNG-gree"],"misspellings":["kungre","kungri","kangre"],"complete":true,"review":true},
+{"id":"3886","level":"3","word":"teraphim","group":"Wildcard","part_of_speech":"plural noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3886.mp3","definition":"images representing household gods among the ancient Jews and other Semitic peoples and later used in divination and as talismanic figures.","origin":"This word is from Hebrew.","pronunciations":["TER-uh-fim"],"misspellings":["terraphim","terafim","terefim"],"complete":true,"review":true},
+{"id":"3801","level":"3","word":"Sawan","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3801.mp3","definition":"a month of the Hindu year.","origin":"This word passed from Sanskrit to Hindi.","pronunciations":["SAH-wun"],"misspellings":["Sawun","Sawen","Sahwan"],"complete":true,"review":true},
+{"id":"3501","level":"3","word":"Jahiliya","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3501.mp3","definition":"the pre-Islamic period in Arabia.","origin":"This word is from Arabic.","pronunciations":["jah-huh-LEE-yuh"],"misspellings":["Jahilia","Juhilya","Jehilia"],"complete":true,"review":true},
+{"id":"3561","level":"3","word":"luftmensch","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3561.mp3","definition":"an impractical contemplative person having no definite trade, business, or income : a dreamer.","origin":"Originally German, this word became Yiddish before being adopted by English.","pronunciations":["LOOFT-mench"],"misspellings":["luftemensch","luftmensche","louftmensch"],"complete":true,"review":true},
+{"id":"3661","level":"3","word":"oud","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3661.mp3","definition":"a musical instrument resembling a mandolin.","origin":"This word is from Arabic.","pronunciations":["ood"],"misspellings":["oued","ude","oude"],"complete":true,"review":true},
+{"id":"3721","level":"3","word":"prajna","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3721.mp3","definition":"in Buddhism, transcendental wisdom or supreme knowledge gained through insight.","origin":"This word is from Sanskrit.","pronunciations":["PRUJ-nuh"],"misspellings":["prujna","prujnah","prajnah"],"complete":true,"review":true},
+{"id":"3451","level":"3","word":"halala","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3451.mp3","definition":"a Saudi Arabian monetary unit equal to 1?100 riyal.","origin":"This word is from Arabic.","pronunciations":["huh-LAH-luh"],"misspellings":["helala","helalah","hallala"],"complete":true,"review":true},
+{"id":"3797","level":"3","word":"sannyasi","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3797.mp3","definition":"a wandering Hindu ascetic.","origin":"This word passed from Sanskrit to Hindi.","pronunciations":["sun-YAH-see"],"misspellings":["sannyassi","sunnyasi","sanyasi"],"complete":true,"review":true},
+{"id":"3422","level":"3","word":"gelilah","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3422.mp3","definition":"the rolling up of the scroll of the law preparatory to wrapping it in its vestments after reading from it in the synagogue.","origin":"This word is from Hebrew.","pronunciations":["guh-LEE-luh"],"misspellings":["gulelah","gelelah","gulailah"],"complete":true,"review":true},
+{"id":"3154","level":"3","word":"bahr","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3154.mp3","definition":"a body of water (as a lake, river, or sea).","origin":"This word is from Arabic.","pronunciations":["bahr"],"misspellings":["barr","bahre","baher"],"complete":true,"review":true},
+{"id":"3579","level":"3","word":"Marathi","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3579.mp3","definition":"the main Indic language of a part of India.","origin":"This word is from a Sanskrit word that passed into a language of the same name as the word.","pronunciations":["muh-RAH-tee"],"misspellings":["Marati","Mahrati","Mahrathi"],"complete":true,"review":true},
+{"id":"3551","level":"3","word":"lilliputian","group":"Wildcard","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3551.mp3","definition":"excessively small.","origin":"This word is from an English literary name plus an English element.","pronunciations":["lil-uh-PYOO-shun"],"misspellings":["lilleputian","lilaputian","lileputian"],"complete":true,"review":true},
+{"id":"3786","level":"3","word":"Ryeland","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3786.mp3","definition":"a breed of hardy hornless white-faced English sheep producing high-quality wool.","origin":"This word comes from an English geographical name.","pronunciations":["RAHY-lund"],"misspellings":["Ryelend","Railand","Rieland"],"complete":true,"review":true},
+{"id":"3759","level":"3","word":"rennet","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3759.mp3","definition":"something used to cause milk to form curds.","origin":"This word was formed in English from an originally English word and an English element.","pronunciations":["REN-it"],"misspellings":["rennit","renett","renitt"],"complete":true,"review":true},
+{"id":"3307","level":"3","word":"cushag","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3307.mp3","definition":"a common ragwort with compact clusters of yellow flower heads that is native to Europe, North Africa, and western Asia but that has become a dangerous and aggressive weed on other continents.","origin":"This word is from a Manx word.","pronunciations":["KUH-shag"],"misspellings":["coushag","cusheg","cushagg"],"complete":true,"review":true},
+{"id":"3814","level":"3","word":"seine","group":"Wildcard","part_of_speech":"verb","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3814.mp3","definition":"to fish with a large upright net.","origin":"This word is from a Germanic word that ultimately derives from Greek via Latin.","pronunciations":["sayn"],"misspellings":["sane","saine","sene"],"complete":true,"review":true},
+{"id":"3939","level":"3","word":"tusche","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3939.mp3","definition":"a substance used in lithography for drawing and painting and in etching and silk-screen process as a resist.","origin":"This word went from Latin to French to German.","pronunciations":["TUSH-uh"],"misspellings":["toushe","touche","tousche"],"complete":true,"review":true},
+{"id":"3678","level":"3","word":"pareidolia","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3678.mp3","definition":"in psychology, the tendency to perceive a specific, often meaningful, image in a random or ambiguous visual pattern.","origin":"This word was formed in German from Greek parts before becoming English.","pronunciations":["per-ahy-DOH-lee-uh"],"misspellings":["pareidoelea","pareidoelia","pareidolea"],"complete":true,"review":true},
+{"id":"3999","level":"3","word":"zugzwang","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3999.mp3","definition":"the need to make a move in chess when it is not to one’s advantage.","origin":"This word is from an originally German word.","pronunciations":["TSOOK-tsfahng"],"misspellings":["zugzwong","zugszwang","zugszwong"],"complete":true,"review":true},
+{"id":"3808","level":"3","word":"schwegel","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3808.mp3","definition":"a wind instrument; specifically: a pipe.","origin":"This word is from German.","pronunciations":["SHFAY-gul"],"misspellings":["schvegel","schvagal","schwagal"],"complete":true,"review":true},
+{"id":"3096","level":"3","word":"Alfvén","group":"Wildcard","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3096.mp3","definition":"of, relating to, or having the characteristics of a transverse electromagnetic wave that propagates along the lines of force in a magnetized plasma.","origin":"This word is from a Swedish name.","pronunciations":["al-VAYN"],"misspellings":["Alfvan","Alvan","Alvén"],"complete":true,"review":true},
+{"id":"3722","level":"3","word":"pralltriller","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3722.mp3","definition":"a melodic musical decoration made by the quick alternation of a principal tone with an upper tone.","origin":"This word consists of a German part plus an Italian-derived German part.","pronunciations":["PRAHL-tril-ur"],"misspellings":["praltriller","praltriler","pralltriler"],"complete":true,"review":true},
+{"id":"3942","level":"3","word":"ubiquinone","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3942.mp3","definition":"any of a group of lipid-soluble isomeric cyclic crystalline compounds that are found especially in mitochondria and have a role in cellular respiration - called also Coenzyme Q10.","origin":"The first part of this word is from Latin, and the second part was formed in German from a Spanish part and a Greek part.","pronunciations":["yoo-BIK-wuh-nohn"],"misspellings":["ubiquanone","ubiquanon","ubiquinon"],"complete":true,"review":true},
+{"id":"3610","level":"3","word":"mozo","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3610.mp3","definition":"a waiter in a restaurant or other dining room — chiefly used in the Southwest.","origin":"This word is from Spanish.","pronunciations":["MOH-soh"],"misspellings":["moso","moszo","mozoh"],"complete":true,"review":true},
+{"id":"3229","level":"3","word":"caló","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3229.mp3","definition":"a language spoken by Spanish Romany and widely influencing the argots of the Spanish-speaking underworld and of bullfighting.","origin":"This word is from Romany-derived Spanish.","pronunciations":["kuh-LOH"],"misspellings":["keló","calló","kelló"],"complete":true,"review":true},
+{"id":"3268","level":"3","word":"ciénaga","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3268.mp3","definition":"a swamp or marsh formed by hillside springs.","origin":"This word is from Latin-derived Spanish.","pronunciations":["SYAY-nuh-guh"],"misspellings":["sciénaga","siénaga","ciénnaga"],"complete":true,"review":true},
+{"id":"3101","level":"3","word":"alpargata","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3101.mp3","definition":"a flat sandal with a sole made of rope, like an espadrille.","origin":"This word is from a word that went from Spanish to Arabic and back to Spanish.","pronunciations":["al-pur-GAH-tuh"],"misspellings":["alpergata","alpurgata","alpirgata"],"complete":true,"review":true},
+{"id":"3922","level":"3","word":"toril","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3922.mp3","definition":"a small enclosure from which a bull enters the ring.","origin":"This word is from Latin-derived Spanish.","pronunciations":["tuh-REEL"],"misspellings":["torreal","toreal","torril"],"complete":true,"review":true},
+{"id":"3099","level":"3","word":"almuerzo","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3099.mp3","definition":"the first substantial meal of the day taken usually just before noon.","origin":"This word went from Latin to Spanish.","pronunciations":["ahl-MWER-soh"],"misspellings":["almeurzo","almuerso","almwerso"],"complete":true,"review":true},
+{"id":"3443","level":"3","word":"guayabera","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3443.mp3","definition":"a usually short-sleeved lightweight sport shirt designed to be worn untucked.","origin":"This word is from American Spanish.","pronunciations":["gwahy-uh-BEHR-uh"],"misspellings":["guayeberra","guayaberra","guayebera"],"complete":true,"review":true},
+{"id":"3209","level":"3","word":"buñuelo","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3209.mp3","definition":"a flat semisweet deep-fried cake usually served with sugar and cinnamon or cane syrup.","origin":"This word is from Spanish.","pronunciations":["boon-yuh-WAY-loh"],"misspellings":["buñuello","buñewalo","buñeulo"],"complete":true,"review":true},
+{"id":"3996","level":"3","word":"zemi","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3996.mp3","definition":"an object believed to be the dwelling of a spirit and to possess magic power.","origin":"This word is from an originally Taino word that passed into Spanish.","pronunciations":["zuh-MEE"],"misspellings":["zeme","zumi","zumie"],"complete":true,"review":true},
+{"id":"3056","level":"3","word":"aceituna","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3056.mp3","definition":"a tree from the West Indies with wood that is soft and light.","origin":"This word is from an Arabic word that passed to Spanish.","pronunciations":["as-uh-TOO-nuh"],"misspellings":["acetuna","acietuna","acituna"],"complete":true,"review":true},
+{"id":"3724","level":"3","word":"presidio","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3724.mp3","definition":"a military post or fortified settlement in areas currently or originally under Spanish control.","origin":"This word is from a word that went from Latin to Spanish.","pronunciations":["prih-SID-ee-oh"],"misspellings":["prisidio","presideo","pricidio"],"complete":true,"review":true},
+{"id":"3517","level":"3","word":"kapparah","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3517.mp3","definition":"a symbolic ceremony practiced by some Orthodox Jews on the eve of Yom Kippur in which typically a rooster, hen, or coin is swung around the head and offered in atonement or as ransom for one’s sins.","origin":"This word is from Hebrew.","pronunciations":["kah-pah-RAH"],"misspellings":["kaparah","kapara","kappara"],"complete":true,"review":true},
+{"id":"3496","level":"3","word":"Inugsuk","group":"Wildcard","part_of_speech":"adjective","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3496.mp3","definition":"of or relating to a stage of indigenous culture in west Greenland (1200–1400 C.E.) resulting from contact between the Thule peoples and medieval Norse cultures.","origin":"The dictionary gives no etymology for this word.","pronunciations":["EE-nug-sook"],"misspellings":["Inugsuc","Inugsook","Inugsoock"],"complete":true,"review":true},
+{"id":"3592","level":"3","word":"Merak","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3592.mp3","definition":"a blue star of the second magnitude that is seen in the constellation Ursa Major and forms part of the base of the Big Dipper.","origin":"The origin of this word is not given in our dictionary.","pronunciations":["MIR-ak"],"misspellings":["Mirak","Merrak","Mirack"],"complete":true,"review":true},
+{"id":"3598","level":"3","word":"miombo","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3598.mp3","definition":"a thinly scattered forest of deciduous trees found in the dry areas of eastern Africa.","origin":"This word is from an East African name.","pronunciations":["mahy-AHM-boh"],"misspellings":["myambo","myombo","miambo"],"complete":true,"review":true},
+{"id":"3599","level":"3","word":"Mirach","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3599.mp3","definition":"in astronomy, a red giant star in the constellation Andromeda.","origin":"There is no origin for this word in our dictionary.","pronunciations":["MAHY-rak"],"misspellings":["Myrach","Myrac","Mirac"],"complete":true,"review":true},
+{"id":"3438","level":"3","word":"Groenendael","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3438.mp3","definition":"a hardy Belgian dog developed to herd sheep which has long, straight, black hair and can grow to over 50 pounds in weight.","origin":"This word comes from a Belgian place name.","pronunciations":["GROO-nun-dahl"],"misspellings":["Groenandahl","Groenandael","Groenendahl"],"complete":true,"review":true},
+{"id":"3573","level":"3","word":"Mandelbrot set","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3573.mp3","definition":"a fractal that roughly resembles a series of heart-shaped disks to which smaller disks are attached.","origin":"The first part of this word entry is a Polish-American name, and the second part is originally English.","pronunciations":["MAN-dul-braht-SET"],"misspellings":["Mandlebrot set","Mandlebrat set","Mandelbrat set"],"complete":true,"review":true},
+{"id":"3728","level":"3","word":"promyshlennik","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3728.mp3","definition":"a Russian trapper and fur trader of Siberia and Alaska.","origin":"This word is from Russian.","pronunciations":["prah-muh-SHLEN-ik"],"misspellings":["promyshlenic","promyshlennick","prommyshlenik"],"complete":true,"review":true},
+{"id":"3582","level":"3","word":"maringouin","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3582.mp3","definition":"a small two-winged biting fly : a blackfly.","origin":"This word came from French, which took it from Tupi, an indigenous language of Amazonian South America.","pronunciations":["ma-ran-GWAN"],"misspellings":["marangouan","maringouan","marangouin"],"complete":true,"review":true},
+{"id":"3156","level":"3","word":"balata","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3156.mp3","definition":"a hard substance made by drying the milky juice of a type of tropical tree and that is used primarily in making golf balls and belts.","origin":"This word is from Spanish, which took it from Cariban [KER-uh-bun], an indigenous language of Central and South America.","pronunciations":["buh-LAH-tuh"],"misspellings":["bullata","bulata","ballata"],"complete":true,"review":true},
+{"id":"3511","level":"3","word":"kakapo","group":"Wildcard","part_of_speech":"noun","audio_link":"https://d26o8czchimmmz.cloudfront.net/audio/wordclub/2025/3511.mp3","definition":"a New Zealand parrot with soft green and brown plumage that has well-developed wings but little power of flight, lives in burrows in the ground and is active mostly at night.","origin":"This word is from Maori, an Austronesian language of New Zealand.","pronunciations":["KAH-kuh-poh"],"misspellings":["kokapo","kakopo","kokopo"],"complete":true,"review":true}
+			
+			];
+	</script>
+	<script type="text/javascript">
+		window.addEventListener("beforeunload", (event) => {
+			event.preventDefault();
+			event.returnValue = true;
+		});
+		
+		let words;
+		let currentWord;
+		let currentList;
+		let currentCounter = 1;
+		let choiceSelected = false;
+		let team1Score = 0;
+		let team2Score = 0;
+		let randomizePoints = false;
+		let optionsHidden = true;
+		
+		function docReady(fn) {
+			// see if DOM is already available
+			if (document.readyState === "complete" || document.readyState === "interactive") {
+				// call on next available tick
+				setTimeout(fn, 1);
+			} else {
+				document.addEventListener("DOMContentLoaded", fn);
+			}
+		}
+		
+		docReady(function() {
+			const wordStatus = getStoredStatus();
+			
+			dictionary.forEach((word) => {
+				if (wordStatus.find(status => status.word == word.word)) {
+					word.review = true;
+				}
+			});
+			
+			if (wordStatus.length > 50) {
+				words = wordStatus.slice(0, 50);
+				selectList("REVIEW", words);
+			} else {
+				const listStatus = getListStatus();
+				const nextWord = dictionary.find(word => !listStatus.includes(word.group));
+				
+				if (nextWord) {
+					selectList(nextWord.group);
+				} else {
+					selectList(dictionary[0].group);
+				}
+			}
+		});
+		
+		function fromHTML(html, trim = true) {
+			// Process the HTML string.
+			html = trim ? html.trim() : html;
+			if (!html) return null;
+
+			// Then set up a new template element.
+			const template = document.createElement('template');
+			template.innerHTML = html;
+			const result = template.content.children;
+
+			// Then return either an HTMLElement or HTMLCollection,
+			// based on whether the input HTML had one or more roots.
+			if (result.length === 1) return result[0];
+			return result;
+		}
+		
+		let menuShown = false;
+		function toggleMenu() {
+			menuShown = !menuShown;
+			if (menuShown) {
+				const wordStatus = getStoredStatus();
+				document.getElementById("review-label").innerHTML = "Review " + wordStatus.length;
+				
+				document.getElementById("menu").style.display = "block";
+				document.getElementById("word").style.opacity = "0.2";
+				document.getElementById("list").style.opacity = "0.2";
+			} else {
+				document.getElementById("menu").style.display = "none";
+				document.getElementById("word").style.opacity = "1";
+				document.getElementById("list").style.opacity = "1";
+			}
+		}
+		
+		function resetBookmarks() {
+			if (confirm("Reset Word Bookmarks?")) {
+				localStorage.setItem("wordStatusL3R", "");
+				location.reload()
+			}
+		}
+		
+		function resetLists() {
+			if (confirm("Reset List Status?")) {
+				localStorage.setItem("L3R-listStatus", "");
+				location.reload()
+			}
+		}
+		
+		function restartGame() {
+			toggleMenu();
+			selectList(currentList);
+		}
+		
+		function reviewBookmarks() {
+			const wordStatus = getStoredStatus();
+			selectList("FULL REVIEW", wordStatus);
+		}
+		
+		let listShown = false;
+		function toggleList() {
+			listShown = !listShown;
+			if (listShown) {
+				document.getElementById("list").style.display = "block";
+				document.getElementById("word").style.display = "none";
+			} else {
+				document.getElementById("list").style.display = "none";
+				document.getElementById("word").style.display = "block";
+			}
+		}
+		
+		function showList() {
+			toggleMenu();
+			if (!listShown) {
+				toggleList()
+			}
+			
+			const listStatus = getListStatus();
+			
+			const groupList = document.getElementById("list-words");
+			groupList.innerHTML = "";
+			groupList.scrollTop = 0;
+			
+			let groupNames = dictionary.map(w => w.group);
+			let tempSet = new Set(groupNames);
+			let groups = [...tempSet];
+			groups.forEach((group) => {
+				let html = '<div><span style="padding-left:25px;padding-bottom:5px;font-size:21px;" onclick="selectList(\'' + group + '\')">' + group + '</span></div>';
+			
+				if (listStatus.includes(group)) {
+					html = html.replace("</span>", '</span><span style="color:lawngreen;float:right; padding-right:13px;font-size:15px;" class="fa-solid fa-check"></span>');
+				}
+				
+				const div = fromHTML(html);
+				groupList.appendChild(div);
+			});
+		}
+		
+		function selectList(group, wordsPreset) {
+			if (listShown) {
+				toggleList();
+			}
+			
+			currentList = group;
+			currentCounter = 1;
+			team1Score = 0;
+			team2Score = 0;
+			
+			document.getElementById("title").innerHTML = group;
+			document.getElementById("team1-score").innerHTML = "00";
+			document.getElementById("team2-score").innerHTML = "00";
+			document.getElementById("team1-score").classList.add("team-turn");
+			document.getElementById("team2-score").classList.remove("team-turn");
+			document.getElementById("nav-next").disabled = false;
+			document.getElementById("nav-next").style.color = "yellow";
+			
+			if (wordsPreset) {
+				words = wordsPreset;
+			} else  {
+				words = dictionary.filter(w => w.group == group);
+			}
+			
+			const firstWordLevel = words[0].level;
+			const mixedLevels = words.find(word => word.level != firstWordLevel);
+			randomizePoints = !mixedLevels;
+			
+			words.forEach(w => w.complete = false);
+			selectWord();
+		}
+		
+		function nextWord() {
+			if (optionsHidden) {
+				setOptions(currentWord.word, currentWord.misspellings);
+				return;
+			}
+		
+			if (!choiceSelected) {
+				return;
+			}
+			
+			if (menuShown) {
+				toggleMenu();
+			}
+			
+			currentCounter++;
+			
+			if (currentCounter % 2 == 1) {
+				document.getElementById("team1-score").classList.add("team-turn");
+				document.getElementById("team2-score").classList.remove("team-turn");
+			} else {
+				document.getElementById("team1-score").classList.remove("team-turn");
+				document.getElementById("team2-score").classList.add("team-turn");
+			}
+			
+			selectWord();
+		}
+		
+		function selectWord() {
+			remainingWords = words.filter(word => !word.complete);
+			
+			if (remainingWords.length == 1) {
+				updateListStatus();
+				showWord(remainingWords[0]);
+			} else if (remainingWords.length > 1) {
+				const randomIndex = Math.trunc(Math.random() * remainingWords.length);
+				showWord(remainingWords[randomIndex]);
+			}
+		}
+		
+		function showWord(word, blockPrevious) {
+			if (word) {
+				currentWord = word;
+				choiceSelected = false;
+				
+				document.getElementById("word-title").innerHTML = word.pronunciations[0];
+				document.getElementById("word-def").innerHTML = word.definition;
+				document.getElementById("word-origin").innerHTML = word.part_of_speech + ": " + word.origin;
+				document.getElementById("nav-progress").innerHTML = String(currentCounter) + "-" + word.level;
+				
+				clearOptions();
+				//setOptions(word.word, word.misspellings);
+				
+				if (word.audio_link) {
+					document.getElementById("audio").src = word.audio_link;
+					document.getElementById("word-pron").style.display = "inline";
+				} else {
+					document.getElementById("word-pron").style.display = "none";
+				}
+				
+				if (word.review == true) {
+					document.getElementById("nav-review").style.color = "orangered";
+				} else {
+					document.getElementById("nav-review").style.color = "yellow";
+				}
+			}
+		}
+		
+		function clearOptions() {
+			optionsHidden = true;
+		
+			document.getElementById("option0").innerHTML = "";
+			document.getElementById("option1").innerHTML = "";
+			document.getElementById("option2").innerHTML = "";
+			document.getElementById("option3").innerHTML = "";
+			
+			document.getElementById("option0-button").style.background = "lightgray";
+			document.getElementById("option1-button").style.background = "lightgray";
+			document.getElementById("option2-button").style.background = "lightgray";
+			document.getElementById("option3-button").style.background = "lightgray";
+		}
+		
+		function setOptions(word, choices) {
+			optionsHidden = false;
+			let options = [word, ...choices];
+			let shuffledOptions = options
+				.map(option => ({ option, sort: Math.random() }))
+				.sort((a, b) => a.sort - b.sort)
+				.map(({ option }) => option);
+				
+			document.getElementById("option0").innerHTML = shuffledOptions[0];
+			document.getElementById("option1").innerHTML = shuffledOptions[1];
+			document.getElementById("option2").innerHTML = shuffledOptions[2];
+			document.getElementById("option3").innerHTML = shuffledOptions[3];
+			
+			document.getElementById("option0-button").style.background = "lightgray";
+			document.getElementById("option1-button").style.background = "lightgray";
+			document.getElementById("option2-button").style.background = "lightgray";
+			document.getElementById("option3-button").style.background = "lightgray";
+			
+			const remainingWords = words.filter(word => !word.complete);
+			if (remainingWords.length == 1) {
+				document.getElementById("nav-next").disabled = true;
+				document.getElementById("nav-next").style.color = "lightgray";
+			}
+		}
+		
+		function selectChoice(option) {
+			if (choiceSelected) {
+				return;
+			} else {
+				choiceSelected = true;
+			}
+			
+			const selectedSpelling = document.getElementById(option).innerHTML;
+			if (selectedSpelling == currentWord.word) {
+				document.getElementById(option + "-button").style.background = "lawngreen";
+				complete(true);
+			} else {
+				document.getElementById(option + "-button").style.background = "orangered";
+				complete(false);
+				
+				for (let i=0; i < 4; i++) {
+					const optionSpelling = document.getElementById("option" + i).innerHTML;
+					if (optionSpelling == currentWord.word) {
+						document.getElementById("option" + i + "-button").style.background = "lawngreen";
+						break;
+					}
+				}
+			}
+		}
+		
+		function complete(success) {
+			currentWord.complete = true;
+			
+			updateWordStatus(!success);
+			
+			if (success) {
+				updateScore();
+			}
+		}
+		
+		function updateScore() {
+			let wordPoints = parseInt(currentWord.level);
+			
+			if (randomizePoints) {
+				wordPoints = Math.trunc(Math.random() * 3) + 1;
+			}
+		
+			if (currentCounter % 2 == 1) {
+				team1Score += wordPoints;
+				document.getElementById("team1-score").innerHTML = String(team1Score).padStart(2, "0");
+			} else {
+				team2Score += wordPoints;
+				document.getElementById("team2-score").innerHTML = String(team2Score).padStart(2, "0");
+			}
+			
+			setTimeout(() => { nextWord(); }, 650);
+		}
+		
+		function reviewWord() {
+			updateWordStatus(!currentWord.review);
+		}
+		
+		function getStoredStatus() {
+			let wordStatus = localStorage.getItem("wordStatusL3R");
+			if (!wordStatus) {
+				wordStatus = [];
+				localStorage.setItem("wordStatusL3R", JSON.stringify(wordStatus));
+				return wordStatus;
+			} else {
+				return JSON.parse(wordStatus);
+			}
+		}
+		
+		function saveStoredStatus(wordStatus) {
+			localStorage.setItem("wordStatusL3R", JSON.stringify(wordStatus));
+		}
+		
+		function updateWordStatus(review) {
+			if (currentWord.review == review) {
+				return;
+			}
+			
+			let wordStatus = getStoredStatus();
+			
+			if (currentWord.review && !review) {
+				const index = wordStatus.map(status => status.word).indexOf(currentWord.word);
+				if (index >= 0) {
+					wordStatus.splice(index, 1);
+				}
+				currentWord.review = false;
+				document.getElementById("nav-review").style.color = "yellow";
+			} else if (!currentWord.review && review){
+				wordStatus.push(currentWord);
+				currentWord.review = true;
+				document.getElementById("nav-review").style.color = "orangered";
+			}
+			
+			saveStoredStatus(wordStatus);
+		}
+		
+		function getListStatus() {
+			let listStatus = localStorage.getItem("L3R-listStatus");
+			if (!listStatus) {
+				listStatus = [];
+				localStorage.setItem("L3R-listStatus", JSON.stringify(listStatus));
+				return listStatus;
+			} else {
+				return JSON.parse(listStatus);
+			}
+		}
+		
+		function saveListStatus(listStatus) {
+			localStorage.setItem("L3R-listStatus", JSON.stringify(listStatus));
+		}
+		
+		function updateListStatus() {
+			let listStatus = getListStatus();
+			
+			if (!listStatus.includes(currentList) && currentList.indexOf("REVIEW") < 0) {
+				listStatus.push(currentList);
+			}
+			
+			saveListStatus(listStatus);
+		}
+		
+	</script>
+</head>
+<body style="font-family:sans-serif">
+	<div style="height:8%;color:yellow;background:black;display:flex;width:100%;">
+		<span style="width:15%;padding-left:10px;font-size:25px;display:flex;align-items:center;justify-content:start;">
+			<button style="background:black;border:none" onclick="toggleMenu()"><span style="font-size:25px;color:yellow;" class="fa-solid fa-bars"></span></button>
+		</span>
+		<span id="title" style="width:70%;font-size:25px;font-family:sans-serif;display:flex;align-items:center;justify-content:center;font-weight:bold;">Test Round</span>
+		<span style="width:15%;padding-right:10px;font-size:25px;display:flex;align-items:center;justify-content:end;" class="fa-brands fa-forumbee"></span>
+	</div>
+	<div id="menu" style="position:absolute;top:calc(8% + 7px);width:40%;background:black;height:calc(84% - 20px);border-top:yellow 3px solid;border-bottom:yellow 3px solid;z-index:1;display:none;">
+		<div style="display:flex;color:yellow;font-size:21px;flex-direction:column">
+			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList()">New</span></div>
+			<div style="margin-left:12px;margin-top:12px;"><span onclick="restartGame()">Restart</span></div>
+		    <div style="margin-left:12px;margin-top:12px;"><span onclick="reviewBookmarks()" id="review-label">Review</span></div>
+			<div style="margin-left:12px;margin-top:45px;"><span onclick="resetLists()">Reset<br>Lists</span></div>
+			<div style="margin-left:12px;margin-top:45px;"><span onclick="resetBookmarks()">Reset<br>Bookmarks</span></div>
+		</div>
+	</div>
+	<div id="word" style="width:100%;">
+		<div id="word-header" style="height:8%;font-family:sans-serif;display:flex;width:100%">
+			<span id="team1-score" class="team-turn" style="width:15%;padding-left:6px;font-size:40px;color:lightgray;display:flex;justify-content:start;align-items:center;font-weight:bold">00</span>
+			<span id="word-title" style="width:70%;font-size:25px;font-weight:bold;display:flex;justify-content:center;align-items:center"></span>			
+			<span id="team2-score" style="width:15%;padding-right:6px;font-size:40px;color:lightgray;display:flex;justify-content:end;align-items:center;font-weight:bold">00</span>
+		</div>
+		<div id="word-multi" style="height:calc(76% - 15px);width:100%;text-align:center;">
+			<audio id="audio" src="https://www.merriam-webster.com/dictionary/Aegean?pronunciation&lang=en_us&dir=a&file=aegean01"></audio>
+			<div style="margin:10px 5px 0 5px;text-align:left;max-height:107px;overflow:hidden;"><span id="word-def">made to feel uncomfortable or embarrassed by something that has happened or been done or said.</span></div>
+			<div id="option0-button" style="min-height:35px;margin:10px 2% 0 2%;padding:10px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option0')"><span id="option0">tokanoma</span></div>
+			<div id="option1-button" style="min-height:35px;margin:10px 2% 0 2%;padding:10px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option1')"><span id="option1">tokanomah</span></div>
+			<div id="option2-button" style="min-height:35px;margin:10px 2% 0 2%;padding:10px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option2')"><span id="option2">tocanoma</span></div>
+			<div id="option3-button" style="min-height:35px;margin:10px 2% 0 2%;padding:10px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option3')"><span id="option3">abate</span></div>
+			<div style="display:flex;flex-direction:row;justify-content:space-between;margin:10px 5px 0 5px;">
+			<div style="text-align:left;max-height:72px;overflow:hidden;"><span id="word-origin">This word passed to English from Latin.</span></div>
+			<button id="word-pron" style="background:white;color:black;border:3px solid black;padding:10px;border-radius:6px;" onclick="document.getElementById('audio').play()"><span style="font-size:40px" class="fa-solid fa-volume-high"></span></button>
+			</div>
+		</div>
+		<div id="nav" style="height:8%;display:flex;padding-left:25px;padding-right:25px;background:black">
+			<span id="nav-progress" style="background:black;color:yellow;font-size:40px;margin-top:3px;margin-bottom:3px;font-weight:bold;width:33%;">01</span>
+			<button id="nav-review" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;width:33%;text-align:center;" onclick="reviewWord()"><span style="font-size:40px" class="fa-solid fa-x"></span></button>
+			<button id="nav-next" style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;width:33%;text-align:right;" onclick="nextWord()"><span style="font-size:40px" class="fa-solid fa-arrow-right"></span></button>
+		</div>
+	</div>
+	<div id="list" style="width:100%;display:none">
+		<div id="list-body" style="height:84%;display:flex;">
+			<div id="list-letters" style="width:7%;padding-left:10px;font-size:21px;background:black;color:yellow;height:100%;display:flex;flex-direction:column;justify-content:start;align-items:start;"></div>
+			<div style="width:8%"></div>
+			<div style="width:85%;margin-bottom:18px;">
+				<div style="display:flex;justify-content:start;align-items:center;width:100%;height:11%;">
+					<span id="list-title" style="font-size:25px;font-weight:bold;">Word Lists</span>
+				</div>
+				<div id="list-words" style="font-size:21px;display:flex;flex-direction:column;overflow-y:scroll;height:89%"></div>
+			</div>
+		</div>
+		<div id="list-nav" style="height:8%;display:flex;justify-content:right;padding-left:25px;padding-right:25px;background:black">
+			<button style="background:black;color:yellow;border:none;margin-top:3px;margin-bottom:3px;" onclick="toggleList()"><span style="font-size:40px" class="fa-solid fa-arrow-left"></span></button>
+		</div>
+	</div>
+</body>
+</html>
