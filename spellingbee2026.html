@@ -4579,6 +4579,9 @@ let dictionary = [
 		let team2Score = 0;
 		let randomizePoints = false;
 		let optionsHidden = true;
+		let listName = "2026-main"
+		let wordStatusKey = listName + "-word-status";
+		let listStatusKey = listName + "-list-status";
 		
 		function docReady(fn) {
 			// see if DOM is already available
@@ -4634,6 +4637,9 @@ let dictionary = [
 		function toggleMenu() {
 			menuShown = !menuShown;
 			if (menuShown) {
+				const wordStatus = getStoredStatus();
+				document.getElementById("review-label").innerHTML = "Review " + wordStatus.length;
+				
 				document.getElementById("menu").style.display = "block";
 				document.getElementById("word").style.opacity = "0.2";
 				document.getElementById("list").style.opacity = "0.2";
@@ -4646,14 +4652,14 @@ let dictionary = [
 		
 		function resetBookmarks() {
 			if (confirm("Reset Word Bookmarks?")) {
-				localStorage.setItem("wordStatus", "");
+				localStorage.setItem(wordStatusKey, "");
 				location.reload()
 			}
 		}
 		
 		function resetLists() {
 			if (confirm("Reset List Status?")) {
-				localStorage.setItem("listStatus", "");
+				localStorage.setItem(listStatusKey, "");
 				location.reload()
 			}
 		}
@@ -4664,6 +4670,7 @@ let dictionary = [
 		}
 		
 		function reviewBookmarks() {
+			toggleMenu();
 			const wordStatus = getStoredStatus();
 			selectList("FULL REVIEW", wordStatus);
 		}
@@ -4696,7 +4703,7 @@ let dictionary = [
 			let tempSet = new Set(groupNames);
 			let groups = [...tempSet];
 			groups.forEach((group) => {
-				let html = '<div><span style="padding-left:25px;padding-bottom:5px;font-size:21px;" onclick="selectList(\'' + group + '\')">' + group + '</span></div>';
+				let html = '<div><span style="padding-left:0px;padding-bottom:5px;font-size:21px;" onclick="selectList(\'' + group + '\')">' + group + '</span></div>';
 			
 				if (listStatus.includes(group)) {
 					html = html.replace("</span>", '</span><span style="color:lawngreen;float:right; padding-right:13px;font-size:15px;" class="fa-solid fa-check"></span>');
@@ -4794,6 +4801,8 @@ let dictionary = [
 				if (word.audio_link) {
 					document.getElementById("audio").src = word.audio_link;
 					document.getElementById("word-pron").style.display = "inline";
+					var audio = new Audio(word.audio_link);
+					audio.play();
 				} else {
 					document.getElementById("word-pron").style.display = "none";
 				}
@@ -4803,6 +4812,12 @@ let dictionary = [
 				} else {
 					document.getElementById("nav-review").style.color = "yellow";
 				}
+
+				setTimeout(() => {
+					if (optionsHidden) {
+						setOptions(currentWord.word, currentWord.misspellings);
+					}
+				}, 750);
 			}
 		}
 		
@@ -4903,10 +4918,10 @@ let dictionary = [
 		}
 		
 		function getStoredStatus() {
-			let wordStatus = localStorage.getItem("wordStatus");
+			let wordStatus = localStorage.getItem(wordStatusKey);
 			if (!wordStatus) {
 				wordStatus = [];
-				localStorage.setItem("wordStatus", JSON.stringify(wordStatus));
+				localStorage.setItem(wordStatusKey, JSON.stringify(wordStatus));
 				return wordStatus;
 			} else {
 				return JSON.parse(wordStatus);
@@ -4914,7 +4929,7 @@ let dictionary = [
 		}
 		
 		function saveStoredStatus(wordStatus) {
-			localStorage.setItem("wordStatus", JSON.stringify(wordStatus));
+			localStorage.setItem(wordStatusKey, JSON.stringify(wordStatus));
 		}
 		
 		function updateWordStatus(review) {
@@ -4941,10 +4956,10 @@ let dictionary = [
 		}
 		
 		function getListStatus() {
-			let listStatus = localStorage.getItem("listStatus");
+			let listStatus = localStorage.getItem(listStatusKey);
 			if (!listStatus) {
 				listStatus = [];
-				localStorage.setItem("listStatus", JSON.stringify(listStatus));
+				localStorage.setItem(listStatusKey, JSON.stringify(listStatus));
 				return listStatus;
 			} else {
 				return JSON.parse(listStatus);
@@ -4952,7 +4967,7 @@ let dictionary = [
 		}
 		
 		function saveListStatus(listStatus) {
-			localStorage.setItem("listStatus", JSON.stringify(listStatus));
+			localStorage.setItem(listStatusKey, JSON.stringify(listStatus));
 		}
 		
 		function updateListStatus() {
@@ -4979,7 +4994,7 @@ let dictionary = [
 		<div style="display:flex;color:yellow;font-size:21px;flex-direction:column">
 			<div style="margin-left:12px;margin-top:12px;"><span onclick="showList()">New</span></div>
 			<div style="margin-left:12px;margin-top:12px;"><span onclick="restartGame()">Restart</span></div>
-		    <div style="margin-left:12px;margin-top:12px;"><span onclick="reviewBookmarks()">Review</span></div>
+		    <div style="margin-left:12px;margin-top:12px;"><span onclick="reviewBookmarks()" id="review-label">Review</span></div>
 			<div style="margin-left:12px;margin-top:45px;"><span onclick="resetLists()">Reset<br>Lists</span></div>
 			<div style="margin-left:12px;margin-top:45px;"><span onclick="resetBookmarks()">Reset<br>Bookmarks</span></div>
 		</div>
@@ -5010,9 +5025,9 @@ let dictionary = [
 	</div>
 	<div id="list" style="width:100%;display:none">
 		<div id="list-body" style="height:84%;display:flex;">
-			<div id="list-letters" style="width:7%;padding-left:10px;font-size:21px;background:black;color:yellow;height:100%;display:flex;flex-direction:column;justify-content:start;align-items:start;"></div>
-			<div style="width:8%"></div>
-			<div style="width:85%;margin-bottom:18px;">
+			<div id="list-letters" style="width:2%;padding-left:10px;font-size:21px;background:black;color:yellow;height:100%;display:flex;flex-direction:column;justify-content:start;align-items:start;"></div>
+			<div style="width:2%"></div>
+			<div style="width:96%;margin-bottom:18px;">
 				<div style="display:flex;justify-content:start;align-items:center;width:100%;height:11%;">
 					<span id="list-title" style="font-size:25px;font-weight:bold;">Word Lists</span>
 				</div>
