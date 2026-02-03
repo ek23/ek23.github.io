@@ -4528,6 +4528,7 @@ let dictionary = [
 		let words;
 		let currentWord;
 		let currentList;
+		let currentAudio;
 		let currentCounter = 1;
 		let choiceSelected = false;
 		let team1Score = 0;
@@ -4752,12 +4753,16 @@ let dictionary = [
 				
 				clearOptions();
 				//setOptions(word.word, word.misspellings);
+
+				if (currentAudio) {
+					currentAudio.pause();
+				}				
 				
 				if (word.audio_link) {
 					document.getElementById("audio").src = word.audio_link;
 					document.getElementById("word-pron").style.display = "inline";
-					var audio = new Audio(word.audio_link);
-					audio.play();
+					currentAudio = new Audio(word.audio_link);
+					currentAudio.play();					
 				} else {
 					document.getElementById("word-pron").style.display = "none";
 				}
@@ -4837,6 +4842,18 @@ let dictionary = [
 						break;
 					}
 				}
+			}
+		}
+
+		function playAudio() {
+			if (currentAudio) {
+				currentAudio.pause();
+			}
+			
+			currentAudio = document.getElementById('audio');
+
+			if (currentAudio) {
+				currentAudio.play();
 			}
 		}
 		
@@ -4969,7 +4986,7 @@ let dictionary = [
 			<div id="option3-button" style="min-height:35px;margin:10px 2% 0 2%;padding:10px 0;font-size:30px;text-align:center;background:lightgray;border-radius:6px;" onclick="selectChoice('option3')"><span id="option3">abate</span></div>
 			<div style="display:flex;flex-direction:row;justify-content:space-between;margin:10px 5px 0 5px;">
 			<div style="text-align:left;max-height:72px;overflow:hidden;"><span id="word-origin">This word passed to English from Latin.</span></div>
-			<button id="word-pron" style="background:white;color:black;border:3px solid black;padding:10px;border-radius:6px;" onclick="document.getElementById('audio').play()"><span style="font-size:40px" class="fa-solid fa-volume-high"></span></button>
+			<button id="word-pron" style="background:white;color:black;border:3px solid black;padding:10px;border-radius:6px;" onclick="playAudio()"><span style="font-size:40px" class="fa-solid fa-volume-high"></span></button>
 			</div>
 		</div>
 		<div id="nav" style="height:8%;display:flex;padding-left:25px;padding-right:25px;background:black">
