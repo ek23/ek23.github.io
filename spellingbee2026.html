@@ -4559,7 +4559,7 @@ let dictionary = [
 			});
 			
 			if (wordStatus.length > 50) {
-				words = wordStatus.slice(0, 50);
+				words = wordStatus.sort(() => Math.random() - 0.5).slice(0, 50);
 				selectList("REVIEW", words);
 			} else {
 				const listStatus = getListStatus();
